@@ -2,7 +2,7 @@
 
 ## Windows 编译 Boost
 
-打开 *x64 Native Tools Command Prompt for VS 2017*（不要使用 Windows 自带的 Cmd）
+打开 **x64 Native Tools Command Prompt for VS 2017**（不要使用 Windows 自带的 Cmd）
 
 ```
 cd C:/boost_1_65_1/tools/build
