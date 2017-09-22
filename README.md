@@ -28,6 +28,8 @@ cmake --build . --config Release
 
 Visual Studio 包管理器，不用手动引入库文件目录，自动加载，相当方便。
 
+[https://github.com/Microsoft/vcpkg](https://github.com/Microsoft/vcpkg)
+
 ```
 vcpkg install boost:x32-windows
 vcpkg install boost:x64-windows
