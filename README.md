@@ -24,6 +24,16 @@ cmake --build . --config Release
 
 不指定 Win64 的话，生成的 Visual Studio 工程是 Win32 的，也以不指定 `--config Release`，默认编译的是 Debug 版。
 
+## VCPKG
+
+Visual Studio 包管理器，不用手动引入库文件目录，自动加载，相当方便。
+
+```
+vcpkg install boost:x32-windows
+vcpkg install boost:x64-windows
+vcpkg --help
+```
+
 ## Windows 虚拟桌面快捷键
 
 * Win + Tab ：显示所有虚拟桌面
@@ -68,3 +78,9 @@ Linux标准规范（Linux Standard Base）/ 最低有效位（Least Significant 
 ## MSB
 
 最高有效位（Most Significant Bit）
+
+## Windows 文件内容在 Linux 上乱码
+
+```bash
+iconv -f GB2312 -t UTF-8 source.cpp > destination.cpp
+```
