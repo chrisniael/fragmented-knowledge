@@ -45,3 +45,26 @@ HandleLidSwitch=lock
 ```
 systemctl restart systemd-logind
 ```
+
+## Linux 上 包含 BOM 头的 UTF-8 文件
+
+Vim 有处理 BOM 的功能，先将编码设置为 UTF-8，`:set fileencoding=utf-8`
+
+* `:set bomb`
+* `:set nobomb`
+* `:set bomb?`
+
+查找删除 BOM
+
+```bash
+grep -r -I -l $'^\xEF\xBB\xBF' /path
+grep -r -I -l $'^\xEF\xBB\xBF' /path | xargs sed -i 's/^\xEF\xBB\xBF//;q'
+```
+
+## LSB
+
+Linux标准规范（Linux Standard Base）/ 最低有效位（Least Significant Bit）
+
+## MSB
+
+最高有效位（Most Significant Bit）
