@@ -99,3 +99,15 @@ yum install google-chrome-stable
 ```bash
 yum remove firefox
 ```
+
+## Terminator
+
+CentOS 7 自带的终端并不是很好用，Terminator 会相对好用一点。
+
+```bash
+yum install terminator
+```
+
+## Vimium
+
+Chrome 的插件，能让用户使用类似 Vim 的快捷键来操作 Chrome。
