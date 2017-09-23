@@ -89,7 +89,13 @@ iconv -f GB2312 -t UTF-8 source.cpp > destination.cpp
 
 ## CentOS 7 安装 Chrome
 
-```
+```bash
 wget http://repo.fdzh.org/chrome/google-chrome-mirrors.repo -P /etc/yum.repos.d/
 yum install google-chrome-stable
+```
+
+可以把 CentOS 7 自带的 firefox 卸载
+
+```bash
+yum remove firefox
 ```
