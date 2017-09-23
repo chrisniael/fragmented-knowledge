@@ -86,3 +86,10 @@ Linux标准规范（Linux Standard Base）/ 最低有效位（Least Significant 
 ```bash
 iconv -f GB2312 -t UTF-8 source.cpp > destination.cpp
 ```
+
+## CentOS 7 安装 Chrome
+
+```
+wget http://repo.fdzh.org/chrome/google-chrome-mirrors.repo -P /etc/yum.repos.d/
+yum install google-chrome-stable
+```
