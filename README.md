@@ -60,6 +60,8 @@ systemctl restart systemd-logind
 
 ## Linux 上 包含 BOM 头的 UTF-8 文件
 
+BOM（byte-order mark）：字节顺序标记
+
 Vim 有处理 BOM 的功能，先将编码设置为 UTF-8，`:set fileencoding=utf-8`
 
 * `:set bomb`
@@ -122,3 +124,169 @@ yum install terminator
 ## Vimium
 
 Chrome 的插件，能让用户使用类似 Vim 的快捷键来操作 Chrome。
+
+## iconv
+
+iconv 是内建 glibc 的组成部分，所以没有独立出 shared-library。
+
+## 网络顺序 & 主机顺序：
+
+Little endian
+Big endian
+
+## Git 查看远程分支
+
+```bash
+git branch -a
+```
+
+## Git Clone 远程分支
+
+```bash
+git checkout -t origin/newbranch
+```
+
+或者
+
+```bash
+git checkout -b newbranch origin/newbranch
+```
+
+## 读写锁
+
+## 递归锁
+
+## memset
+
+```cpp
+void * memset(void * ptr, int value, size_t num);
+```
+
+## memcpy
+
+```cpp
+void * memcpy(void * destination, void * source, size_t num);
+```
+
+## C++ 宏 \#
+
+在一个宏中的参数前面使用一个#，预处理器会把这个参数转换为一个字符数组。
+
+```cpp
+#define ERROR_LOG(module)   fprintf(stderr,"error: "#module"\n")
+ERROR_LOG("add");        //转换为 fprintf(stderr,"error: "add"\n");
+ERROR_LOG(devied =0);    //转换为 fprintf(stderr,"error: devied=0\n");
+```
+
+## C++ 宏 \#\#
+
+“##” 是一种分隔连接方式，它的作用是先分隔，然后进行强制连接。
+
+```cpp
+#define TYPE1(type,name)   type name_##type##_type
+#define TYPE2(type,name)   type name##_##type##_type
+TYPE1(int, c);    //转换为: int name_int_type; (因为##号将后面分为 name_ 、type 、 _type三组，替换后强制连接)
+TYPE2(int, d);    //转换为: int d_int_type; (因为##号将后面分为 name、_、type 、_type四组，替换后强制连接)
+```
+
+## C++ 宏 do{ }while(0)
+
+采用这种方式是为了防范在使用宏过程中出现错误，主要有如下几点：
+
+1. 空的宏定义避免warning
+
+  ```cpp
+  #define foo() do{}while(0)
+  ```
+
+2. 存在一个独立的block，可以用来进行变量定义，进行比较复杂的实现。
+3. 如果出现在判断语句过后的宏，这样可以保证作为一个整体来是实现
+
+  ```cpp
+  #define foo(x) \
+  action1(); \
+  action2();
+  ```
+
+  在以下情况下
+
+  ```cpp
+  if(NULL == pPointer)
+      foo();
+  ```
+
+  就会出现action1和action2不会同时被执行的情况，而这显然不是程序设计的目的。
+4. 以上的第3种情况用单独的 `{}` 也可以实现，但是为什么一定要一个 `do{}while(0)` 呢，看以下代码
+
+  ```cpp
+  #define switch(x,y) {int tmp; tmp="x";x=y;y=tmp;}
+  if(x>y)
+      switch(x,y);
+  else
+      //error, parse error before else
+      otheraction();
+  ```
+
+  在把宏引入代码中，会多出一个分号，从而会报错。这对这一点，可以将if和else语句用 `{}` 括起来，可以避免分号错误。
+
+  使用 `do{…}while(0)` 把它包裹起来，成为一个独立的语法单元，从而不会与上下文发生混淆。同时因为绝大多数的编译器都能够识别 `do{…}while(0)` 这种无用的循环并进行优化，所以使用这种方法也不会导致程序的性能降低。
+
+## 宽字符 wchar_t
+
+## Terminal 字体推荐
+
+Monaco 是一个来自 Mac 的字体，而 Consolas 是来自 Windows 的字体
+
+## rpm 搜索拥有目标文件的软件包
+
+```bash
+rpm -qf target_file
+```
+
+## yum 搜索包含目标文件的软件包
+
+```bash
+yum whatprovides(provides) target_file
+```
+
+## gdb 调试 core 文件
+
+```bash
+ulimit -c unlimited
+g++ -g
+gdb ./bin/test core
+bt
+```
+
+## CentOS 查看电池电量
+
+```bash
+cat /sys/class/power_supply/BAT1/capacity
+```
+
+## rpm
+
+```bash
+rpm -ivh foo-1.0-l.i386.rpm
+rpm -Uvh foo-2.0-l.i386.rpm
+rpm -e foo
+rpm -q foo
+碰到一个人不出来的文件，想要知道它是属于那一个软件包
+rpm -qf /etc/nginx/nginx.conf
+想了解某个文件包将会在系统里安装那些文件
+rpm -qpi koules-1.2-2.i386.rpm
+不小心误删了几个文件，但不确定到底是那些文件，可以对整个系统进行校验，以了解哪些部分可能已经损坏
+rpm -Va
+一个 RPM 包的文件都安装到哪里去了 
+rpm -ql
+```
+
+## Vim 代码折叠
+
+* zC 对所在范围内所有嵌套的折叠点进行折叠
+* zo 展开折叠
+* zO 对所在范围内所有嵌套的折叠点展开
+* [z 到当前打开的折叠的开始处。
+* ]z 到当前打开的折叠的末尾处。
+* zj 向下移动。到达下一个折叠的开始处。关闭的折叠也被计入。
+* zk 向上移动到前一折叠的结束处。关闭的折叠也被计入。
