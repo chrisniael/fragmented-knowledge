@@ -86,3 +86,10 @@ Linux标准规范（Linux Standard Base）/ 最低有效位（Least Significant 
 ```bash
 iconv -f GB2312 -t UTF-8 source.cpp > destination.cpp
 ```
+./foo_test    没有指定过滤条件，运行所有案例
+./foo_test --gtest_filter=*    使用通配符*，表示运行所有案例
+./foo_test --gtest_filter=FooTest.*    运行所有“测试案例名称(testcase_name)”为FooTest的案例
+./foo_test --gtest_filter=*Null*:*Constructor*    运行所有“测试案例名称(testcase_name)”或“测试名称(test_name)”包含Null或Constructor的案例。
+./foo_test --gtest_filter=-*DeathTest.*    运行所有非死亡测试案例。
+./foo_test --gtest_filter=FooTest.*-FooTest.Bar    运行所有“测试案例名称(testcase_name)”为FooTest的案例，但是除了FooTest.Bar这个案例
+```
