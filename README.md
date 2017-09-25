@@ -86,6 +86,10 @@ Linux标准规范（Linux Standard Base）/ 最低有效位（Least Significant 
 ```bash
 iconv -f GB2312 -t UTF-8 source.cpp > destination.cpp
 ```
+
+## Google Test 指定运行测试用例
+
+```bash
 ./foo_test    没有指定过滤条件，运行所有案例
 ./foo_test --gtest_filter=*    使用通配符*，表示运行所有案例
 ./foo_test --gtest_filter=FooTest.*    运行所有“测试案例名称(testcase_name)”为FooTest的案例
@@ -93,3 +97,28 @@ iconv -f GB2312 -t UTF-8 source.cpp > destination.cpp
 ./foo_test --gtest_filter=-*DeathTest.*    运行所有非死亡测试案例。
 ./foo_test --gtest_filter=FooTest.*-FooTest.Bar    运行所有“测试案例名称(testcase_name)”为FooTest的案例，但是除了FooTest.Bar这个案例
 ```
+
+## CentOS 7 安装 Chrome
+
+```bash
+wget http://repo.fdzh.org/chrome/google-chrome-mirrors.repo -P /etc/yum.repos.d/
+yum install google-chrome-stable
+```
+
+可以把 CentOS 7 自带的 firefox 卸载
+
+```bash
+yum remove firefox
+```
+
+## Terminator
+
+CentOS 7 自带的终端并不是很好用，Terminator 会相对好用一点。
+
+```bash
+yum install terminator
+```
+
+## Vimium
+
+Chrome 的插件，能让用户使用类似 Vim 的快捷键来操作 Chrome。
