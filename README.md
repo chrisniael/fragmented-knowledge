@@ -121,6 +121,20 @@ CentOS 7 自带的终端并不是很好用，Terminator 会相对好用一点。
 yum install terminator
 ```
 
+## Terminator 快捷键
+
+* `Ctrl` + `PageUp` : 上一个标签
+* `Ctrl` + `PageUp` : 下一个标签
+* `F11` : 全屏
+* `Ctrl` + `Shift` + `O` : 水平分割终端
+* `Ctrl` + `Shift` + `E` : 垂直分割终端
+* `Ctrl` + `Shift` + `W` : 关闭当前终端
+* `Ctrl` + `Shift` + `T` : 打开一个新的标签页
+* `Alt` + `↑` : 切换至上面的终端
+* `Alt` + `↓` : 切换至下面的终端
+* `Alt` + `←` : 切换至左边的终端
+* `Alt` + `↓` : 切换至右边的终端
+
 ## Vimium
 
 Chrome 的插件，能让用户使用类似 Vim 的快捷键来操作 Chrome。
