@@ -311,3 +311,10 @@ rpm -ql
 * `Ctrl` + `Alt` + `↓` : 切换到下一个虚拟桌面
 * `Ctrl` + `Alt` + `Shift` + `↑` : 将当前程序移动到上一个虚拟桌面
 * `Ctrl` + `Alt` + `Shift` + `↓` : 将当前程序移动到下一个虚拟桌面
+
+## Git Submodule
+
+```bash
+git submodule init
+git submodule update
+```
