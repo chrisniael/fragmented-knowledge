@@ -318,3 +318,12 @@ rpm -ql
 git submodule init
 git submodule update
 ```
+
+## Mac 查看 CPU 型号
+
+```bash
+sysctl -n machdep.cpu.brand_string
+system_profiler SPHardwareDataType
+```
+
+CPU 比较的网站：[CPU-Monkey](http://www.cpu-monkey.com)
