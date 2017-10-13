@@ -156,6 +156,12 @@ git branch -a
 
 ## Git Clone 远程分支
 
+先
+
+```
+git fetch origin
+```
+
 ```bash
 git checkout -t origin/newbranch
 ```
