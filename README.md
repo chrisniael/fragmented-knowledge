@@ -333,3 +333,47 @@ system_profiler SPHardwareDataType
 ```
 
 CPU 比较的网站：[CPU-Monkey](http://www.cpu-monkey.com)
+
+## Git 仓库迁移
+
+Clone 一份裸仓库
+
+```bash
+git clone --bare git@github.com/chrisniael/oldrepo.git
+```
+
+以镜像的方式上传到新 Git 服务器上
+
+```bash
+cd oldrepo
+git push --mirror git@shenyu.me/chrisniael/newrepo.git
+```
+
+## CMake Release/Debug 编译
+
+```bash
+cmake -DCMAKE_BUILD_TYPE=Release .
+cmake -DCMAKE_BUILD_TYPE=Debug .
+```
+
+## CentOS 7 防火墙操作
+
+开放端口
+
+```bash
+firewall-cmd --zone=public --add-port=3000/tcp --permanent
+firewall-cmd --reload
+```
+
+检查
+
+```bash
+firewall-cmd --list-all
+firewall-cmd --state
+```
+
+## Git HTTP 协议记住密码
+
+```bash
+git config --global credential.helper store
+```
