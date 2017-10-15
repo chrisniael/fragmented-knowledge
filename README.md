@@ -288,17 +288,23 @@ cat /sys/class/power_supply/BAT1/capacity
 
 ```bash
 rpm -ivh foo-1.0-l.i386.rpm
+# 检查
+rpm -ivh --test foo-1.0-l.i386.rpm
 rpm -Uvh foo-2.0-l.i386.rpm
 rpm -e foo
 rpm -q foo
-碰到一个人不出来的文件，想要知道它是属于那一个软件包
+# 碰到一个人不出来的文件，想要知道它是属于那一个软件包
 rpm -qf /etc/nginx/nginx.conf
-想了解某个文件包将会在系统里安装那些文件
+# 想了解某个文件包将会在系统里安装那些文件
 rpm -qpi koules-1.2-2.i386.rpm
-不小心误删了几个文件，但不确定到底是那些文件，可以对整个系统进行校验，以了解哪些部分可能已经损坏
+# 不小心误删了几个文件，但不确定到底是那些文件，可以对整个系统进行校验，以了解哪些部分可能已经损坏
 rpm -Va
-一个 RPM 包的文件都安装到哪里去了 
+# 一个 RPM 包的文件都安装到哪里去了 
 rpm -ql
+# 查看依赖关系
+rpm -qpR
+# 查看 rpm 包信息
+rpm -qpi foo-1.0.l.i386.rpm
 ```
 
 ## Vim 代码折叠
@@ -376,4 +382,11 @@ firewall-cmd --state
 
 ```bash
 git config --global credential.helper store
+```
+
+## CentOS 7 Home 目录改为英文
+
+```
+export LANG=en_US
+xdg-user-dirs-gtk-update
 ```
