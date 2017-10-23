@@ -386,7 +386,13 @@ git config --global credential.helper store
 
 ## CentOS 7 Home 目录改为英文
 
-```
+```bash
 export LANG=en_US
 xdg-user-dirs-gtk-update
+```
+
+## 查看端口占用情况
+
+```bash
+netstat -anp | grep 80
 ```
