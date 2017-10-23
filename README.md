@@ -396,3 +396,9 @@ xdg-user-dirs-gtk-update
 ```bash
 netstat -anp | grep 80
 ```
+
+## GNome Terminal 光标不闪烁
+
+```bash
+gsettings set org.gnome.desktop.interface cursor-blink false
+```
