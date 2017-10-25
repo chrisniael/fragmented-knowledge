@@ -410,3 +410,7 @@ gsettings set org.gnome.desktop.interface cursor-blink false
 ```vim
 :%s/false\n/true\r/g
 ```
+
+## 修改 Linux Firefox 的默认缩放比
+
+在网址里输入 `about:config`，将字段 `layout.css.devPixelsPerPx` 改为 `1.2` 或更大。
