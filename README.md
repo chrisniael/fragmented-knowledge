@@ -402,3 +402,11 @@ netstat -anp | grep 80
 ```bash
 gsettings set org.gnome.desktop.interface cursor-blink false
 ```
+
+## Vim 替换换行符
+
+将 false\n 替换为 true\n
+
+```vim
+:%s/false\n/true\r/g
+```
