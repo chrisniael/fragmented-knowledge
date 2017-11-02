@@ -414,3 +414,39 @@ gsettings set org.gnome.desktop.interface cursor-blink false
 ## 修改 Linux Firefox 的默认缩放比
 
 在网址里输入 `about:config`，将字段 `layout.css.devPixelsPerPx` 改为 `1.2` 或更大。
+
+
+## C++ 终端打印 wstring
+
+```cpp
+#include <iostream>
+#include <locale>
+#include <string>
+
+std::wcout.sync_with_stdio(false);
+std::wcout.imbue(std::locale("zh_CN.UTF-8"));
+
+std::wstring wstr(L"今天");
+std::wcout << std::endl;
+```
+
+## C++ 按行读取为 wstring
+
+```cpp
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <locale>
+#include <cstdlib>
+
+std::wifstream wif(filename);
+wif.imbue(std::locale("zh_CN.UTF-8"));
+
+std::wcout.imbue(std::locale("zh_CN.UTF-8"));
+std::wstring wstr;
+while(std::getline(wif, wstr))
+{
+    std::wcout << wstr << std::endl;
+    std::wcout << wstr.size() << std::endl;
+}
+```
