@@ -450,3 +450,18 @@ while(std::getline(wif, wstr))
     std::wcout << wstr.size() << std::endl;
 }
 ```
+
+## CentOS 7 修改最大文件打开数
+
+修改文件 `/etc/security/limits.conf`
+
+```config
+* soft nofile 65535
+* hard nofile 65535
+```
+
+然后执行
+
+```bash
+ulimit -n 65535
+```
