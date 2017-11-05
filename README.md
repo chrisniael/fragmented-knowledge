@@ -465,3 +465,24 @@ while(std::getline(wif, wstr))
 ```bash
 ulimit -n 65535
 ```
+
+## htpasswd 网站加密访问
+
+生成密码文件
+
+```bash
+htpasswd -bc .passwd shenyu 123456
+```
+
+修改 nginx 配置
+
+```config
+auth_basic "project-name-auth";
+auth_basic_user_file path/.htpasswd;
+```
+
+热更 nginx 配置
+
+```bash
+nginx -s reload
+```
