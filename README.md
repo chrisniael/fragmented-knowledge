@@ -486,3 +486,14 @@ auth_basic_user_file path/.htpasswd;
 ```bash
 nginx -s reload
 ```
+
+## Git 创建 tag
+
+```bash
+git tag 1.0
+git tag -am "your comment text." 1.0
+git tag
+git show 1.0
+git push origin 1.0
+git push origin --tags
+```
