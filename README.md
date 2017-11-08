@@ -1,6 +1,6 @@
 # Fragmented Knowledge
 
-一些零碎的知识点记录。
+这里是一些零碎知识点的记录，内容比较随意。
 
 
 ## Windows 编译 Boost
