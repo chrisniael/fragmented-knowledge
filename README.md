@@ -539,4 +539,8 @@ gem uninstall gemname --version=ver
 
 # 查看本机已安装的所有 gem 包
 gem list [--local]
+
+gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
+
+gem sources -l
 ```
