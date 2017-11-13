@@ -538,5 +538,5 @@ gem uninstall gemname
 gem uninstall gemname --version=ver
 
 # 查看本机已安装的所有 gem 包
-gem list --local
+gem list [--local]
 ```
