@@ -497,3 +497,46 @@ git show 1.0
 git push origin 1.0
 git push origin --tags
 ```
+
+## Linux 卸载 Ruby 以及所有的 Ruby 组件
+
+```bash
+for x in `gem list --no-versions`; do gem uninstall $x -a -x -I; done
+yum remove ruby
+```
+
+## 脚本中 export 环境变量到运行脚本的 Bash 中
+
+```bash
+source example.sh
+```
+
+## gem
+
+```bash
+# 更新 gem 自身
+# 注意：在某些 Linux 发行版中为了系统稳定性此命令禁止执行
+gem update --system
+
+gem install gemname
+
+gem install -l gemname.gem
+
+gem install gemname --version=1.0
+
+# 更新所有已安装的gem 包
+gem update
+
+# 更新指定的 gem 包
+# 注意：gem update gemname 不会升级旧版本的包，此时你可以使用 gem install gemname --version=ver 代替
+gem update gemname
+
+# 删除指定的 gem 包，注意此命令将删除所有已安装的版本
+gem uninstall gemname
+
+# 删除某指定版本 gem 包
+gem uninstall gemname --version=ver
+
+# 查看本机已安装的所有 gem 包
+gem list --local
+```
