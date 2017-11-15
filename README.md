@@ -544,3 +544,11 @@ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
 
 gem sources -l
 ```
+
+## C++ 创建一个不带缓冲区的文件流
+
+```cpp
+std::ifstream f;
+f.rdbuf()->pubsetbuf(0, 0);
+f.open("example.txt")
+```
