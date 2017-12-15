@@ -552,3 +552,42 @@ std::ifstream f;
 f.rdbuf()->pubsetbuf(0, 0);
 f.open("example.txt")
 ```
+
+## Git Submodule
+
+clone 并初始化带 submodule 的仓库
+
+```bash
+git clone --recursive git@shenyu.me:shenyu/example.git
+```
+
+增加 submodule
+
+```bash
+git submodule add git@shenyu.me:shenyu/submodule-a.git
+git submodule update --init --recursive
+git add .
+git commit -m "Add a module."
+```
+
+更新 submodule
+
+```bash
+git submodule update --init --remote --recursive
+git add .
+git commit -m "update submodule."
+```
+
+删除 submodule
+
+```bash
+mv submodule submodule-backup
+git submodule deinit -f -- submodule
+rm -rf .git/modules/submodule
+git rm -f submodule
+```
+
+修改 submodule 仓库地址
+
+```bash
+```
