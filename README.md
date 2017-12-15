@@ -561,6 +561,13 @@ clone 并初始化带 submodule 的仓库
 git clone --recursive git@shenyu.me:shenyu/example.git
 ```
 
+或者
+
+```bash
+git clone git@shenyu.me:shenyu/example.git
+git submodule update --init --recursive
+```
+
 增加 submodule
 
 ```bash
@@ -568,14 +575,18 @@ git submodule add git@shenyu.me:shenyu/submodule-a.git
 git submodule update --init --recursive
 git add .
 git commit -m "Add a module."
+git push origin master
 ```
+
+`git submodule add module-repo` 并不会 clone module 的子模块仓库，所以需要再执行 `git submodule update --init --recursive`。
 
 更新 submodule
 
 ```bash
 git submodule update --init --remote --recursive
 git add .
-git commit -m "update submodule."
+git commit -m "Update submodule."
+git push origin master
 ```
 
 删除 submodule
@@ -585,9 +596,16 @@ mv submodule submodule-backup
 git submodule deinit -f -- submodule
 rm -rf .git/modules/submodule
 git rm -f submodule
+git push origin
 ```
 
 修改 submodule 仓库地址
 
 ```bash
+git submodule deinit -f -- submodule
+rm -rf .git/modules/submodule
+vim .gitmodule
+git submodule update --init --recursive
+git commit -m "Change "
+git push origin master
 ```
