@@ -606,3 +606,24 @@ f.open("example.txt")
     git commit -m "Change "
     git push origin master
     ```
+
+* 查看 submodule 状态
+
+    ```bash
+    git submodule status --recursive
+    ```
+
+## SELinux 增加删除 HTTP 端口
+
+* 增加
+
+    ```bash
+    semanage port -a -t http_port_t -p tcp 888
+    semanage port -l | grep http_port
+    netstat -lpn —tcp | grep 888
+    ```
+* 删除
+    ```bash
+    semanage port -d -t http_port_t -p tcp 888
+    semanage port -l | grep http_port
+    ```
