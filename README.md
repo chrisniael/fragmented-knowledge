@@ -627,3 +627,9 @@ f.open("example.txt")
     semanage port -d -t http_port_t -p tcp 888
     semanage port -l | grep http_port
     ```
+
+## Mac 终端发送 iMessage
+
+```bash
+osascript -e 'tell application "Messages" to send "我在用命令行发短信，哈哈哈" to buddy "老大"'
+```
