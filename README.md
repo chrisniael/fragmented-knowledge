@@ -633,3 +633,10 @@ f.open("example.txt")
 ```bash
 osascript -e 'tell application "Messages" to send "我在用命令行发短信，哈哈哈" to buddy "老大"'
 ```
+
+## CMake Visual Studio /MT 和 /MTd 选项
+
+```cmake
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
+```
