@@ -640,3 +640,12 @@ osascript -e 'tell application "Messages" to send "我在用命令行发短信�
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
 ```
+
+## Windows Cmder Bash 右键打开直接进入对应目录
+
+```bash
+if [ -n "$CMDER_START" ]
+then
+    cd ${CMDER_START}
+fi
+```
