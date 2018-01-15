@@ -665,3 +665,21 @@ Host *
 Host *hostname.com
     ServerAliveInterval 60
 ```
+
+## 终端使用 HTTP 代理
+
+Mac/Linux
+
+```bash
+export http_proxy=http://127.0.0.1:1087
+export https_proxy=http://127.0.0.1:1087
+```
+
+Windows
+
+```cmd
+set http_proxy=http://127.0.0.1:1080
+set https_proxy=http://127.0.0.1:1080
+```
+
+URL 是本地 HTTP 代理监听的地址。
