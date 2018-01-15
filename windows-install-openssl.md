@@ -75,6 +75,10 @@
     nmake -f ms\ntdll.mak install
     ```
 
+## 其他
+
+OpenSSL 依赖于 Crypt32.lib 这个库，所以在使用 OpenSSL 库的时候，要一起添加这个库。
+
 ## 参考资料
 
 [如何在 Windows 下编译 OpenSSL (intel.com)](https://software.intel.com/zh-cn/blogs/2013/12/22/windows-openssl)
