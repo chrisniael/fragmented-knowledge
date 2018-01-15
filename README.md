@@ -649,3 +649,19 @@ then
     cd ${CMDER_START}
 fi
 ```
+
+## Windows Cmder 保持 SSH 连接
+
+配置 ssh 客户端每 60 秒发包给服务器来保持连接
+
+```config
+Host *
+    ServerAliveInterval 60
+```
+
+也可以指定域名，可以用通配符
+
+```config
+Host *hostname.com
+    ServerAliveInterval 60
+```
