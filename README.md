@@ -683,3 +683,8 @@ set https_proxy=http://127.0.0.1:1080
 ```
 
 URL 是本地 HTTP 代理监听的地址。
+
+## Visual Studio 注释代码快捷键
+
+* Ctrl-K + Ctrl-C : 注释选择的代码
+* Ctrl-K + Ctrl-U : 取消注释选择的代码
