@@ -688,3 +688,16 @@ URL 是本地 HTTP 代理监听的地址。
 
 * Ctrl-K + Ctrl-C : 注释选择的代码
 * Ctrl-K + Ctrl-U : 取消注释选择的代码
+
+## CentOS 7 关闭 SELinux
+
+```config
+#/etc/sysconfig/selinux
+
+SELINUX=disabled
+```
+
+```bash
+setenforce 0
+getendorce
+```
