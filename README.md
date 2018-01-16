@@ -701,3 +701,13 @@ SELINUX=disabled
 setenforce 0
 getendorce
 ```
+
+## SElinux 导致 SSH authorized_keys 不生效
+
+查看日志 `/var/log/audit/audit.log`
+
+```bash
+restorecon -R -v /root/.ssh
+```
+
+[Setting up SSH authorized_keys with SELinux enabled](https://www.pyrosoft.co.uk/blog/2013/01/12/setting-up-ssh-authorized_keys-with-selinux-enabled/)
