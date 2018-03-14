@@ -719,3 +719,12 @@ w
 who am i
 pkill -kill -t pts/1
 ```
+
+## Mac SSH Client 保持连接
+
+`vim ~/.ssh/config`
+
+``` bash
+ServerAliveInterval 30
+ServerAliveCountMax 60
+```
