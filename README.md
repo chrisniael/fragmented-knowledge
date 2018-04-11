@@ -734,3 +734,9 @@ ServerAliveCountMax 60
 ```bash
 perf top -p pid
 ```
+
+## Linux 清理内存
+
+```bash
+echo 1 > /proc/sys/vm/drop_caches
+```
