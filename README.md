@@ -728,3 +728,9 @@ pkill -kill -t pts/1
 ServerAliveInterval 30
 ServerAliveCountMax 60
 ```
+
+## Linux 性能分析工具 perf
+
+```bash
+perf top -p pid
+```
