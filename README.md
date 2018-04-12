@@ -758,3 +758,9 @@ netstate -anpt | grep 80
 ```bash
 ldd bin
 ```
+
+## Gcc 关闭返回值优化
+
+```
+g++ -fno-elide-constructors main.cpp -o main
+```
