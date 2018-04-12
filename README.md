@@ -746,3 +746,9 @@ echo 1 > /proc/sys/vm/drop_caches
 ```bash
 Top -Hp pid
 ```
+
+## 查看端口占用情况
+
+```bash
+netstate -anpt | grep 80
+```
