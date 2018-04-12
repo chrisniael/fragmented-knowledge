@@ -740,3 +740,9 @@ perf top -p pid
 ```bash
 echo 1 > /proc/sys/vm/drop_caches
 ```
+
+## Top 查看指定进程各个线程状态
+
+```bash
+Top -Hp pid
+```
