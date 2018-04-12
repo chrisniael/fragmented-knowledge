@@ -752,3 +752,9 @@ Top -Hp pid
 ```bash
 netstate -anpt | grep 80
 ```
+
+## Linux 查看二进制文件依赖的动态库
+
+```bash
+ldd bin
+```
