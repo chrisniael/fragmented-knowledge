@@ -788,3 +788,24 @@ xxd -r file-out
 ```vim
 :%!xxd -r
 ```
+
+## Vim -b 作用
+
+以二进制方式打开文件，不会在末尾自动加上换行符。
+
+```bash
+echo -n "test vim -b command." > test.txt
+cat test.txt
+vim test.txt    // 保存并退出
+cat test.txt
+```
+执行完后文件 test.txt 末尾多加一个换行符。
+
+```bash
+echo -n "test vim -b command." > test.txt
+cat test.txt
+vim -b test.txt
+cat test.txt
+```
+
+而用 `vim -b` 方式打开则不会出现这个问题。
