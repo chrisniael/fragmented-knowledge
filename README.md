@@ -764,3 +764,27 @@ ldd bin
 ```
 g++ -fno-elide-constructors main.cpp -o main
 ```
+
+## 读取文件的 16 进制内容
+
+```bash
+xxd file
+xxd file file-out
+xxd -r file-out
+```
+
+还可以组合 Vim 进行操作，Vim 以二进制方式打开 `vim -b`
+
+```vim
+:%!xxd file
+```
+
+还可以直接用 Vim 以二进制打开一个文件进行操作
+
+```vim
+:%!xxd
+```
+
+```vim
+:%!xxd -r
+```
