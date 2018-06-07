@@ -815,3 +815,12 @@ cat test.txt
 ```bash
 yum install iptraf-ng
 ```
+
+## Ubuntu 软件包安装相关
+
+```bash
+apt-cache searh <pkg>    # 搜索
+apt-cache show <pkg>     # 查看详细信息
+apt-get install <pkg>    # 安装
+dpkg -L <pkg>            # 查看包安装了哪些文件
+```
