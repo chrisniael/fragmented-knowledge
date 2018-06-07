@@ -809,3 +809,9 @@ cat test.txt
 ```
 
 而用 `vim -b` 方式打开则不会出现这个问题。
+
+## Linux 网络流量监控 iptraf-ng
+
+```bash
+yum install iptraf-ng
+```
