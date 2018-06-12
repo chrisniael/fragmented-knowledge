@@ -824,3 +824,11 @@ apt-cache show <pkg>     # 查看详细信息
 apt-get install <pkg>    # 安装
 dpkg -L <pkg>            # 查看包安装了哪些文件
 ```
+
+## Yum 加快下载速度
+
+可以先开代理，然后
+
+```bash
+yum makecache fast
+```
