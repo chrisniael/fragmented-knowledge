@@ -832,3 +832,10 @@ dpkg -L <pkg>            # 查看包安装了哪些文件
 ```bash
 yum makecache fast
 ```
+
+## Git 远程已经删除的分支
+
+```bash
+git remote show origin
+git remote prune origin
+```
