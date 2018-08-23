@@ -15,6 +15,12 @@ make install
 
 ## 配置启动 socks5 服务器
 
+打开 socks5 配置文件 `/etc/opt/ss5/ss5.conf`，取消这两行的注释
+
+```bash
+auth    0.0.0.0/0               -               -
+permit -        0.0.0.0/0       -       0.0.0.0/0       -       -       -       -       -
+```
 
 ## 映射 socks5 服务端口至外网
 
