@@ -95,7 +95,7 @@ set completeopt=longest,menu
 `~/.ycm_extra_conf` 文件可以从 YouCompleteMe 中拷贝一份
 
 ```bash
-cp ~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py ~/
+wget -O ~/.ycm_extra_conf https://raw.githubusercontent.com/Valloric/ycmd/master/examples/.ycm_extra_conf.py
 ```
 
 ## 配合 CMake 使用
