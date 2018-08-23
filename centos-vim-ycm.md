@@ -27,7 +27,6 @@ cd vim-8.1.0320
             --enable-luainterp=yes \
             --enable-cscope \
             --prefix=/usr/local
-            
 make
 make install
 ```
@@ -98,3 +97,19 @@ set completeopt=longest,menu
 ```bash
 cp .vim/bundle/YouCompleteMe/.ycm_extra_conf ~/
 ```
+
+## 配合 CMake 使用
+
+```bash
+cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .
+```
+
+执行后会生成文件 `compile_commands.json`，确保此文件在项目的根目录下。
+
+或者还可以在 `CMakeLists.txt` 中添加
+
+```cmake
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+```
+
+这样 YouCompleteMe 就可以根据 `compile_commands.json` 文件来做语法提示，语法分析了。
