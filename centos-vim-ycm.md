@@ -116,7 +116,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 ## 参考
 
-[CentOS7.2安装Vim8和YouCompleteMe (cnblogs.com/nidey)](https://www.cnblogs.com/nidey/p/8657016.html)
-[YouCompleteMe (github.com/Valloric/YouCompleteMe)](https://github.com/Valloric/YouCompleteMe)
-[vundle (github.com/vundlevim/vundle)](https://github.com/vundlevim/vundle.vim)
-[vim-cpp-enhanced-highlight (github.com/octol/vim-cpp-enhanced-highlight)](https://github.com/octol/vim-cpp-enhanced-highlight)
+* [CentOS7.2安装Vim8和YouCompleteMe (cnblogs.com/nidey)](https://www.cnblogs.com/nidey/p/8657016.html)
+* [YouCompleteMe (github.com/Valloric/YouCompleteMe)](https://github.com/Valloric/YouCompleteMe)
+* [vundle (github.com/vundlevim/vundle)](https://github.com/vundlevim/vundle.vim)
+* [vim-cpp-enhanced-highlight (github.com/octol/vim-cpp-enhanced-highlight)](https://github.com/octol/vim-cpp-enhanced-highlight)
