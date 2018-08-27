@@ -2,6 +2,12 @@
 
 CentOS 7.5.1804
 
+## CentOS 分区
+
+CentOS 默认会将 `/home` 目录挂载在一个很大分区上，对于 GitLab 服务器来说很是浪费，所以这里要自定义来分区，确保 `/` 目录能挂在在相对大的分区上，而 `/home` 分配少许的空间就好了。
+
+## 安装 GitLab
+
 ```bash
 yum install -y curl policycoreutils-python openssh-server
 systemctl enable sshd
