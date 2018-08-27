@@ -12,19 +12,19 @@ firewall-cmd --reload
 ```
 
 ```bash
-yum install postfix
-systemctl start postfix
-systemctl enable postfix
+#yum install postfix
+#systemctl start postfix
+#systemctl enable postfix
 ```
 
-部分网络提供商会把 25 端口禁用，这样 postfix 功能会用不了。
+大部分网络提供商会把 25 端口禁用，postfix 就会用不了，这边不使用邮件系统，下面的配置会将其关闭。
 
 
 ```bash
 curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.rpm.sh | bash
 ```
 
-将 `EXTERNAL_URL` 的值设置为之后想要访问的 URL，可以是域名或者 IP 地址
+将 `EXTERNAL_URL` 的值设置为之后想要访问的 URL，可以是域名或者 IP 地址，注意，这里用的是 **http** 协议。
 
 ```bash
 EXTERNAL_URL="http://gitlab.example.com" yum install -y gitlab-ce
@@ -41,9 +41,12 @@ chmod 700 /etc/gitlab/ssl/private
 openssl req -x509 -nodes -days 36500 -newkey rsa:2048 -keyout /etc/gitlab/ssl/private/gitlab.key -out /etc/gitlab/ssl/certs/gitlab.crt
 ```
 
-修改 GitLab 配置文件 `/etc/gitlab/gitlab.rb`
+修改 GitLab 配置文件 `/etc/gitlab/gitlab.rb`，注意，这里将 **http** 协议改为 **https** 了。
 
 ```cfg
+external_url 'https://gitlab.example.com
+gitlab_rails['gitlab_email_enabled'] = false
+gitlab_rails['smtp_enable'] = false
 nginx['redirect_http_to_https'] = true
 nginx['ssl_certificate'] = "/etc/gitlab/ssl/certs/gitlab.crt"
 nginx['ssl_certificate_key'] = "/etc/gitlab/ssl/private/gitlab.key"
@@ -62,6 +65,31 @@ gitlab-ctl reconfigure
 ## Dog Tunnel 配置
 
 ...
+
+新建配置 `/etc/systemd/system/dtunnel.service`
+
+```cfg
+[Unit]
+Description=dog tunnel daemon
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/local/bin/dtunnel_lite -service shenyu.me:8888 -local :3000 -v -xor 18921661936 -auth 18921661936 -action 0.0.0.0:443 -pipe 5 -r
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+systemctl start dtunnel
+systemctl enable dtunnel
+```
 
 
 ## Nginx 配置
