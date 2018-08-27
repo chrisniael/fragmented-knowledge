@@ -839,3 +839,13 @@ yum makecache fast
 git remote show origin
 git remote prune origin
 ```
+
+## SSH 关闭密码登陆
+
+```bash
+vim /etc/ssh/sshd_config
+```
+
+```
+PasswordAuthentication no
+```
