@@ -120,6 +120,6 @@ permit -        0.0.0.0/0       -       0.0.0.0/0       -       -       -       
 
 ## 参考
 
-[How To Use (vzex/dog-tunnel)](https://github.com/vzex/dog-tunnel/blob/udpVersion/HowToUse.txt)
-[CentOS下配置SS5(SOCKS5)代理服务器 (csdn.net/Vincent95)](https://blog.csdn.net/Vincent95/article/details/71172986)
-[Tutorial: how to use git through a proxy (cms-sw.github.io)](http://cms-sw.github.io/tutorial-proxy.html)
+* [How To Use (vzex/dog-tunnel)](https://github.com/vzex/dog-tunnel/blob/udpVersion/HowToUse.txt)
+* [CentOS下配置SS5(SOCKS5)代理服务器 (csdn.net/Vincent95)](https://blog.csdn.net/Vincent95/article/details/71172986)
+* [Tutorial: how to use git through a proxy (cms-sw.github.io)](http://cms-sw.github.io/tutorial-proxy.html)
