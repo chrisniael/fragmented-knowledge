@@ -127,8 +127,8 @@ server
 
 ## 参考
 
-[GitLab Installation (gitlab.com.cn)](https://www.gitlab.com.cn/installation/#centos-7)
-[Incorrect URL for builds and new projects when behind a proxy (gitlab.com)](https://gitlab.com/gitlab-org/gitlab-ce/issues/14888)
-[How To Set Up Nginx Load Balancing with SSL Termination (digitalocean.com)](https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-load-balancing-with-ssl-termination)
-[Gitlab 安装，配置HTTPS证书、配置SMTP (cnyunwei.cc)](https://www.cnyunwei.cc/archives/1182)
-[如何在CentOS 7上为Nginx创建自签名的SSL证书 (howtoing.com)](https://www.howtoing.com/how-to-create-a-self-signed-ssl-certificate-for-nginx-on-centos-7/)
+* [GitLab Installation (gitlab.com.cn)](https://www.gitlab.com.cn/installation/#centos-7)
+* [Incorrect URL for builds and new projects when behind a proxy (gitlab.com)](https://gitlab.com/gitlab-org/gitlab-ce/issues/14888)
+* [How To Set Up Nginx Load Balancing with SSL Termination (digitalocean.com)](https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-load-balancing-with-ssl-termination)
+* [Gitlab 安装，配置HTTPS证书、配置SMTP (cnyunwei.cc)](https://www.cnyunwei.cc/archives/1182)
+* [如何在CentOS 7上为Nginx创建自签名的SSL证书 (howtoing.com)](https://www.howtoing.com/how-to-create-a-self-signed-ssl-certificate-for-nginx-on-centos-7/)
