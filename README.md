@@ -849,3 +849,15 @@ vim /etc/ssh/sshd_config
 ```
 PasswordAuthentication no
 ```
+
+## Docker 容器开机自动启动
+
+```basa
+docker run --restart=always <image>
+```
+
+可以修改已经启动的容器的属性
+
+```bash
+docker container update --restart=always <container>
+```
