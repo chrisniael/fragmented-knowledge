@@ -861,3 +861,9 @@ docker run --restart=always <image>
 ```bash
 docker container update --restart=always <container>
 ```
+
+## Git 取出特定版本的某个文件
+
+```bash
+git checkout <commit> <file>
+```
