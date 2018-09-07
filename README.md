@@ -867,3 +867,21 @@ docker container update --restart=always <container>
 ```bash
 git checkout <commit> <file>
 ```
+
+## Vim 关闭 Preview 窗口
+
+```vim
+pclose
+```
+
+或者
+
+```
+Ctrl-w Ctrl-z
+```
+
+或者
+
+```
+Ctrl-w z
+```
