@@ -885,3 +885,7 @@ Ctrl-w Ctrl-z
 ```
 Ctrl-w z
 ```
+
+## Vim 中文手册
+
+[http://vimcdoc.sourceforge.net](http://vimcdoc.sourceforge.net)
