@@ -299,7 +299,7 @@ rpm -qf /etc/nginx/nginx.conf
 rpm -qpi koules-1.2-2.i386.rpm
 # 不小心误删了几个文件，但不确定到底是那些文件，可以对整个系统进行校验，以了解哪些部分可能已经损坏
 rpm -Va
-# 一个 RPM 包的文件都安装到哪里去了 
+# 一个 RPM 包的文件都安装到哪里去了
 rpm -ql
 # 查看依赖关系
 rpm -qpR
@@ -888,4 +888,15 @@ Ctrl-w z
 
 ## Vim 中文手册
 
-[http://vimcdoc.sourceforge.net](http://vimcdoc.sourceforge.net)
+[http://vimcdoc.sourceforge.net](http://vimcdoc.sourceforge.net"")
+
+## Vim 忽略大小写查找
+
+```vim
+:set ignorecase
+```
+或在查找的字符串后面加上*空格*还有 `\c`
+
+```vim
+/set \c
+```
