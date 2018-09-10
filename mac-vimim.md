@@ -3,7 +3,7 @@
 ## 安装 berkeley-db 6.1.26
 
 ```bash
-http://download.oracle.com/berkeley-db/db-6.1.26.tar.gz
+wget http://download.oracle.com/berkeley-db/db-6.1.26.tar.gz
 tar xvf db-6.1.26.tar.gz
 cd db-6.1.26/build_unix
 mkdir -p /usr/local/Cellar/berkeley-db/6.1.26
