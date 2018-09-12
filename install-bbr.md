@@ -1,4 +1,7 @@
-# CentOS 7 安装 Google BBR
+# 安装 Google BBR
+
+
+## CentOS 7
 
 ```bash
 rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
@@ -44,3 +47,33 @@ sysctl net.ipv4.tcp_available_congestion_control
 net.ipv4.tcp_available_congestion_control = bbr cubic reno
 ```
 
+## Amazon Linux AMI
+
+内核版本已大于 4.7，不需要升级内核，只需要启用 BBR 即可
+
+```bash
+modprobe tcp_bbr
+modprobe sch_fqj
+sysctl -w net.ipv4.tcp_congestion_control=bbr
+```
+
+持久化配置
+
+新建文件 `/etc/sysconfig/modules/tcpcong.modules`
+
+内容如下
+
+```bash
+#!/bin/bash
+exec /sbin/modprobe tcp_bbr >/dev/null 2>&1
+exec /sbin/modprobe sch_fq >/dev/null 2>&1
+```
+
+```bash
+chmod 755 /etc/sysconfig/modules/tcpcong.modules
+echo "net.ipv4.tcp_congestion_control = bbr" >> /etc/sysctl.d/00-tcpcong.conf
+```
+
+## 参考
+
+[amazon-linux-ami (aws.amazon.com)](https://aws.amazon.com/cn/amazon-linux-ami/2017.09-release-notes/)
