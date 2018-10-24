@@ -903,8 +903,8 @@ Ctrl-w z
 
 ## Linux core 命名规则修改
 
-`/proc/sys/kernel/core_uses_pid` : 可以控制产生的core文件的文件名中是否添加pid作为扩展，如果添加则文件内容为1，否则为0
-`/proc/sys/kernel/core_pattern` : 可以设置格式化的core文件保存位置或文件名，比如原来文件内容是core-%e
+* `/proc/sys/kernel/core_uses_pid` : 可以控制产生的core文件的文件名中是否添加pid作为扩展，如果添加则文件内容为1，否则为0
+* `/proc/sys/kernel/core_pattern` : 可以设置格式化的core文件保存位置或文件名，比如原来文件内容是core-%e
 
 ```
 %p - insert pid into filename 添加pid
