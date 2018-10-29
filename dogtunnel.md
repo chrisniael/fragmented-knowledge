@@ -52,9 +52,3 @@ RestartSec=10
 [Install]
 WantedBy=multi-user.target
 ```
-
-```bash
-firewall-cmd --zone=public --add-port=8022/tcp --permanent
-firewall-cmd --reload
-firewall-cmd --list-all
-```
