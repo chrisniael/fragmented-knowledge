@@ -16,7 +16,7 @@ After=network.target
 Type=simple
 User=root
 Group=root
-ExecStart=/usr/local/bin/dtunnel_lite -service shenyu.me:8888 -v -xor 123456 -auth 123456 
+ExecStart=/usr/local/bin/dtunnel_lite -service shenyu.me:8888 -v -xor 123456 -auth 123456 -dnscache 10
 Restart=always
 RestartSec=10
 
@@ -45,7 +45,7 @@ After=network.target
 Type=simple
 User=root
 Group=root
-ExecStart=/usr/local/bin/dtunnel_lite -service shenyu.me:8888 -local :8022 -v -xor 123456 -auth 123456 -action 10.246.60.194:8022 -pipe 5 -r
+ExecStart=/usr/local/bin/dtunnel_lite -service shenyu.me:8888 -local :8022 -v -xor 123456 -auth 123456 -action 0.0.0.0:22 -pipe 5 -r
 Restart=always
 RestartSec=10
 
@@ -56,5 +56,5 @@ WantedBy=multi-user.target
 ```bash
 firewall-cmd --zone=public --add-port=8022/tcp --permanent
 firewall-cmd --reload
-firewall-cmd --list-al
+firewall-cmd --list-all
 ```
