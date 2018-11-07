@@ -919,3 +919,19 @@ Ctrl-w z
 ```bash
 echo "core-%e-%p-%t" > /proc/sys/kernel/core_pattern
 ```
+
+## CentOS 进程可打开的文件数设置
+
+```bash
+vim /etc/security/limits.conf
+```
+
+```
+* soft nofile 1024000
+* hard nofile 1024000
+```
+
+重新打开一个 ssh session 生效
+
+```bash
+ulmit -n
