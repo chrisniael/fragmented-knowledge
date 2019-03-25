@@ -935,3 +935,10 @@ vim /etc/security/limits.conf
 
 ```bash
 ulmit -n
+```
+
+## Linux 查看按键对应的字符码
+
+```bash
+showkey -a
+```
