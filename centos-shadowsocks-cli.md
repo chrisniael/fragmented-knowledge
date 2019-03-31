@@ -20,7 +20,8 @@ yum install -y shadowsocks-libev
 ```
 
 ```bash
-nohup sslocal -c /etc/shadowsocks.json > /dev/null 2>&1 &
+systemctl start shadowsocks-libev-local.service
+systemctl enable shadowsocks-libev-local.service
 ```
 
 ```bash
