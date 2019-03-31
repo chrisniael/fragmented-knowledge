@@ -942,3 +942,13 @@ ulmit -n
 ```bash
 showkey -a
 ```
+
+## CentOS 7 设置 NTP 时间同步
+
+```
+yum install ntp
+systemctl start ntpd
+systemctl enable ntpd
+timedatectl set-timezone Asia/Shanghai
+timedatectl set-ntp yes
+```
