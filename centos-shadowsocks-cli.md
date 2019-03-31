@@ -1,11 +1,10 @@
 # CentOS 7 ShadowSocks 客户端作 HTTP(S) 代理
 
-
 ```bash
-yum install -y python34 python34-pip
-pip3.4 install shadowsocks
+wget https://copr.fedorainfracloud.org/coprs/librehat/shadowsocks/repo/epel-7/librehat-shadowsocks-epel-7.repo
+mv librehat-shadowsocks-epel-7.repo /etc/yum.repos.d/
+yum install -y shadowsocks-libev
 ```
-
 
 /etc/shadowsocks.json
 
@@ -13,12 +12,10 @@ pip3.4 install shadowsocks
 {
     "server" : "*.*.*.*",
     "server_port" : 8989,
-    "local_address" : "127.0.0.1",
     "local_port" : 1080,
     "password" : "****",
-    "timeout" : 300,
-    "method" : "aes-256-cfb",
-    "workers" : 1
+    "timeout" : 60,
+    "method" : "chacha20-ietf-poly1305",
 }
 ```
 
