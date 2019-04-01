@@ -6,7 +6,7 @@ mv librehat-shadowsocks-epel-7.repo /etc/yum.repos.d/
 yum install -y shadowsocks-libev
 ```
 
-/etc/shadowsocks.json
+/etc/shadowsocks-libev/config.json
 
 ```config
 {
