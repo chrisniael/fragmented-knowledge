@@ -56,6 +56,8 @@ gitlab_rails['smtp_enable'] = false
 nginx['redirect_http_to_https'] = true
 nginx['ssl_certificate'] = "/etc/gitlab/ssl/certs/gitlab.crt"
 nginx['ssl_certificate_key'] = "/etc/gitlab/ssl/private/gitlab.key"
+
+gitlab_rails['time_zone'] = 'Beijing'
 ```
 
 生效配置
