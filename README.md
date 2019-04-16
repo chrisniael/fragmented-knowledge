@@ -952,3 +952,11 @@ systemctl enable ntpd
 timedatectl set-timezone Asia/Shanghai
 timedatectl set-ntp yes
 ```
+
+## Git Branch 相关
+
+```bash
+git branch -vv  // 查看分支关联
+git branch -u origin/master  // 关联当前分支至 origin/master
+git branch --unset-upstream  // 删除当前分支关联
+```
