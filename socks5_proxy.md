@@ -13,13 +13,60 @@ make
 make install
 ```
 
-## 配置启动 socks5 服务器
+## 配置
+
+`vim /etc/rc.d/init.d/ss5`
+
+```diff
+@@ -6,7 +6,7 @@
+ #
+
+ OS=`uname -s`
+-if [ $OS = "Linux" ] || [ $OS = "SunOS" ]; then
++if [ "$OS" = "Linux" ] || [ "$OS" = "SunOS" ]; then
+
+ # Source function library.
+  . /etc/rc.d/init.d/functions
+@@ -15,7 +15,7 @@
+  . /etc/sysconfig/network
+
+ # Check that networking is up.
+- [ ${NETWORKING} = "no" ] && exit 0
++ [ "${NETWORKING}" = "no" ] && exit 0
+
+  [ -f /usr/sbin/ss5 ] || exit 0
+ fi
+@@ -29,6 +29,7 @@
+         # Start daemon.
+         echo -n "Starting ss5... "
+        if [ $OS = "Linux" ]; then
++            mkdir -p /var/run/ss5
+             daemon /usr/sbin/ss5 -t $SS5_OPTS
+             touch /var/lock/subsys/ss5
+        else
+```
+
 
 打开 socks5 配置文件 `/etc/opt/ss5/ss5.conf`，取消这两行的注释
 
 ```bash
-auth    0.0.0.0/0               -               -
-permit -        0.0.0.0/0       -       0.0.0.0/0       -       -       -       -       -
+auth    0.0.0.0/0               -               u
+permit u        0.0.0.0/0       -       0.0.0.0/0       -       -       -       -       -
+
+
+
+在文件 `/etc/opt/ss5/ss5.passwd` 中配置账号密码
+
+```config
+<username> <passwd>
+```
+
+```
+## 启动 socks5 服务器
+
+```bash
+systemctl start ss5
+systemctl enable ss5
 ```
 
 ## 映射 socks5 服务端口至外网
