@@ -72,13 +72,10 @@ gitlab-ctl reconfigure
 
 ## Dog Tunnel 配置
 
-...
-
-新建配置 `/etc/systemd/system/dtunnel.service`
-
 ```cfg
+# /etc/systemd/system/dtunnel-https.service`
 [Unit]
-Description=dog tunnel daemon
+Description=dog tunnel daemon for https
 After=syslog.target
 After=network.target
 
@@ -86,7 +83,26 @@ After=network.target
 Type=simple
 User=root
 Group=root
-ExecStart=/usr/local/bin/dtunnel_lite -service shenyu.me:8888 -local :3000 -v -xor 18921661936 -auth 18921661936 -action 0.0.0.0:443 -pipe 5 -r
+ExecStart=/usr/local/bin/dtunnel_lite -service shenyu.me:8809 -local :8812 -v -xor 1936 -auth 1936 -action 0.0.0.0:443 -pipe 5 -r
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```cfg
+# /etc/systemd/system/dtunnel-ssh.service`
+[Unit]
+Description=dog tunnel daemon for ssh
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/local/bin/dtunnel_lite -service shenyu.me:8809 -local :22 -v -xor 1936 -auth 1936 -action 0.0.0.0:22 -pipe 5 -r
 Restart=always
 RestartSec=10
 
@@ -104,7 +120,7 @@ systemctl enable dtunnel
 
 ```cfg
 upstream git.shenyu.me {
-    server localhost:3000;
+    server localhost:8812;
 }
 
 server
