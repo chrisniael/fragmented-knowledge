@@ -1,4 +1,4 @@
-# Arch Linux (UEFI) 安装指南
+# Arch Linux (EFI/GPT) 安装指南
 
 ## 下载 Arch Linux 镜像
 

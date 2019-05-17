@@ -1,4 +1,4 @@
-# Arch Linux (BIOS) 安装指南
+# Arch Linux (BIOS/MBR) 安装指南
 
 ## 下载 Arch Linux 镜像
 
@@ -75,12 +75,12 @@ fdisk /dev/sda
 
 下面的操作是在 fdisk 里
 
-1. 输入 `o`，新建 GPT 分区表
+1. 输入 `o`，新建 DOS 分区表
 2. 输入 `w`，保存修改，这个操作会抹掉磁盘所有数据，慎重
 
 #### 分区创建
 
-1. 新建 Linux root (x86-64)  分区
+1. 新建 Linux root 分区
    1. 输入 `n`
    2. 选择分区类型（p：主分区，e：扩展分区），默认选择 p ，直接 `Enter`
    3. 选择分区区号，直接 `Enter`，使用默认值，fdisk 会自动递增分区号
@@ -88,7 +88,7 @@ fdisk /dev/sda
    5. 分区结束扇区号，例如：`+100G`
    6. 输入 `t` 修改刚刚创建的分区类型
    7. 选择分区号，直接 `Enter`， 使用默认值，fdisk 会自动选择刚刚新建的分区
-   8. 输入 `24`，使用 Linux root (x86-64) 类型
+   8. 输入 `83`，使用 Linux 类型
 2. 新建 Linux swap 分区
    1. 输入 `n`
    2. 选择分区类型（p：主分区，e：扩展分区），默认选择 p ，直接 `Enter`
@@ -97,7 +97,7 @@ fdisk /dev/sda
    5. 分区结束扇区号，例如 `+8G`
    6. 输入 `t` 修改刚刚创建的分区类型
    7. 选择分区号，直接 `Enter`， 使用默认值，fdisk 会自动选择刚刚新建的分区
-   8. 输入 `19`，使用 Linux swap 类型
+   8. 输入 `82`，使用 Linux swap 类型
 3. 保存新建的分区
    1. 输入 `w`
 
@@ -230,8 +230,7 @@ passwd
 
 ```bash
 pacman -S grub
-pacman -S efibootmgr
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
+grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
