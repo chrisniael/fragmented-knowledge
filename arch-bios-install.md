@@ -179,6 +179,12 @@ en_US.UTF-8 UTF-8
 zh_CN.UTF-8 UTF-8
 ```
 
+生成 locale 信息
+
+```bash
+locale-gen
+```
+
 创建 /etc/locale.conf
 
 ```
