@@ -28,6 +28,12 @@ GRUB_DEFAULT=0
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
+## 删除旧 kernel
+
+```bash
+yum remove kernel-3.* kernel-devel-3.*
+```
+
 ## 参考
 
 * [http://elrepo.org/tiki/tiki-index.php](http://elrepo.org/tiki/tiki-index.php)
