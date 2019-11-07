@@ -1,0 +1,33 @@
+# PuTTY 配置
+
+## 关闭 Bell
+
+* Terminal - Bell - Action to happen when a bell occurs : None (bell disable)
+
+## 字体
+
+* 安装 powerline font
+* Window - Appearance - Font settings : 12-point
+* Window - Appearance - Font settings : DejaVu Sans Mono for Powerline
+* Window - Appearance - Adjust the use of the mouse pointer : Hide mouse pointer when typing in window
+
+## 全屏快捷键
+
+* Window - Behaviour : Full screen on Alt-Enter
+
+## SSH 默认用户名
+
+* Connection - Data - Login details - Auto-login username
+
+## SSH 私钥设置
+
+* PuTTYgen - Conversations - Import Key - Save private key
+* Connection - SSH - Auth - Private key file for authentication
+
+## 保存登陆密码
+
+original 版本不支持
+
+## 保存会话设置
+
+* Session - Load, save or delete a stored session - Saved Sessions
