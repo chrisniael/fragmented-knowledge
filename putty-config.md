@@ -31,3 +31,11 @@ original 版本不支持
 ## 保存会话设置
 
 * Session - Load, save or delete a stored session - Saved Sessions
+
+## 打开菜单快捷键
+
+* Window - Behaviour : System menu appears on Alt+Space
+
+## 隐藏滚动
+
+* Windows - Control the scrollback in the window : Display scrollbar
