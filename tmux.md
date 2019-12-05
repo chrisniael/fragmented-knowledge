@@ -25,10 +25,13 @@ C-b : default prefix key
 
 
 #### Session
+s           显示 session 列表
 
 
 #### Window
+w           显示 window 列表
 0 to 9      Select windows 0 to 9.
+l           上一个 window
 
 #### Pane
 
@@ -41,3 +44,15 @@ C-Left, C-Right
 M-Up, M-Down
 M-Left, M-Down
             Resize the current pane in steps of five cell.
+M-o         rotate pane
+C-o         rotate pane
+o           切换到下一个 pane
+z           最大化当前 pane
+
+
+#### 其他
+
+d           detach
+t           big clock
+?           list shortcut
+:           prompt
