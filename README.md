@@ -960,3 +960,11 @@ git branch -vv  // 查看分支关联
 git branch -u origin/master  // 关联当前分支至 origin/master
 git branch --unset-upstream  // 删除当前分支关联
 ```
+
+## vim 启动不加载配置
+
+```bash
+# -u : 指定配置文件, NONE 表示不使用
+# -N : 不适用兼容模式
+vim -u NONE -N
+```
