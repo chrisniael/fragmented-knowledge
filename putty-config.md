@@ -39,3 +39,7 @@ original 版本不支持
 ## 隐藏滚动
 
 * Windows - Control the scrollback in the window : Display scrollbar
+
+## 更改终端类型为 xterm-256color
+
+* Connection - Data - Terminal details - Terminal-type string : xterm-256color
