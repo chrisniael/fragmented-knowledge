@@ -10,6 +10,7 @@
 * Window - Appearance - Font settings : 12-point
 * Window - Appearance - Font settings : DejaVu Sans Mono for Powerline
 * Window - Appearance - Adjust the use of the mouse pointer : Hide mouse pointer when typing in window
+* Window - Colours - Indicate bolded text by changing : Both
 
 ## 全屏快捷键
 
