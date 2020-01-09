@@ -21,14 +21,14 @@ md5 archlinux-2019.05.02-x86_64.iso
 在 BIOS 中设置启动磁盘为刚刚写入 Arch 系统的 U 盘
 
 进入 U 盘的启动引导程序后，选择第一项：Boot Arch Linux (x86_64)
- 
+
 ## 验证启动模式
 
 ```
 ls /sys/firmware/efi/efivars
 ```
 
-如果 /sys/firmware/efi/efivars 目录存在，则系统可能是从 UEFI 模式启动的。 
+如果 /sys/firmware/efi/efivars 目录存在，则系统可能是从 UEFI 模式启动的。
 
 ## 连接 internet
 
@@ -80,12 +80,18 @@ fdisk /dev/sda
 
 #### 分区创建
 
+```bash
+fdisk /dev/sda
+```
+
+1 sector = 512 bytes
+
 1. 新建 Linux root 分区
    1. 输入 `n`
    2. 选择分区类型（p：主分区，e：扩展分区），默认选择 p ，直接 `Enter`
    3. 选择分区区号，直接 `Enter`，使用默认值，fdisk 会自动递增分区号
    4. 分区开始扇区号，直接 `Enter`，使用默认值
-   5. 分区结束扇区号，例如：`+100G`
+   5. 分区结束扇区号，例如：`+100G`（剩余空间 - 分配给 swap 分区的空间）
    6. 输入 `t` 修改刚刚创建的分区类型
    7. 选择分区号，直接 `Enter`， 使用默认值，fdisk 会自动选择刚刚新建的分区
    8. 输入 `83`，使用 Linux 类型
@@ -121,7 +127,7 @@ swapon /dev/sda2
 ###### 显示 dm 状态
 
 ```bash
-dmsetup status 
+dmsetup status
 ```
 
 ###### 删除 dm
@@ -137,6 +143,10 @@ mount /dev/sda1 /mnt
 ```
 
 ## 配置 pacman mirror
+
+```bash
+pacman -S vim
+```
 
 ```bash
 vim /etc/pacman.d/mirrorlist
@@ -209,6 +219,7 @@ beta
 ```
 
 ```bash
+pacman -S dhcpcd
 systemctl enable dhcpcd
 ```
 
@@ -221,7 +232,7 @@ passwd
 ## 安装 Microcode
 
 * AMD CPU
-  
+
   ```bash
   pacman -S amd-ucode
   ```

@@ -21,14 +21,14 @@ md5 archlinux-2019.05.02-x86_64.iso
 在 UEFI BIOS 中设置启动磁盘为刚刚写入 Arch 系统的 U 盘
 
 进入 U 盘的启动引导程序后，选择第一项：Arch Linux archiso x86_64 UEFI CD
- 
+
 ## 验证启动模式
 
 ```
 ls /sys/firmware/efi/efivars
 ```
 
-如果 /sys/firmware/efi/efivars 目录不存在，则系统可能是从 BIOS 模式启动的。 
+如果 /sys/firmware/efi/efivars 目录不存在，则系统可能是从 BIOS 模式启动的。
 
 ## 连接 internet
 
@@ -80,33 +80,36 @@ fdisk /dev/nvme0n1
 
 #### 分区创建
 
+```bash
+fdisk /dev/nvme0n1
+```
+
+1 sector = 512 bytes
+
 1. 新建 EFI System 分区
    1. 输入 `n`
-   2. 选择分区类型（p：主分区，e：扩展分区），默认选择 p ，直接 `Enter`
-   3. 选择分区区号，直接 `Enter`，使用默认值，fdisk 会自动递增分区号
-   4. 分区开始扇区号，直接 `Enter`，使用默认值
-   5. 分区结束扇区号，输入 `+512M`
-   6. 输入 `t` 修改刚刚创建的分区类型
-   7. 选择分区号，直接 `Enter`， 使用默认值，fdisk 会自动选择刚刚新建的分区
-   8. 输入 `1`，使用 EFI System 类型
+   2. 选择分区区号，直接 `Enter`，使用默认值，fdisk 会自动递增分区号
+   3. 分区开始扇区号，直接 `Enter`，使用默认值
+   4. 分区结束扇区号，输入 `+512M`
+   5. 输入 `t` 修改刚刚创建的分区类型
+   6. 选择分区号，直接 `Enter`， 使用默认值，fdisk 会自动选择刚刚新建的分区
+   7. 输入 `1`，使用 EFI System 类型
 2. 新建 Linux root (x86-64)  分区
    1. 输入 `n`
-   2. 选择分区类型（p：主分区，e：扩展分区），默认选择 p ，直接 `Enter`
-   3. 选择分区区号，直接 `Enter`，使用默认值，fdisk 会自动递增分区号
-   4. 分区开始扇区号，直接 `Enter`，使用默认值
-   5. 分区结束扇区号，比如 `+100G`
-   6. 输入 `t` 修改刚刚创建的分区类型
-   7. 选择分区号，直接 `Enter`， 使用默认值，fdisk 会自动选择刚刚新建的分区
-   8. 输入 `24`，使用 Linux root (x86-64) 类型
+   2. 选择分区区号，直接 `Enter`，使用默认值，fdisk 会自动递增分区号
+   3. 分区开始扇区号，直接 `Enter`，使用默认值
+   4. 分区结束扇区号，比如 `+100G`（剩余空间 - 分配给 swap 分区的空间）
+   5. 输入 `t` 修改刚刚创建的分区类型
+   6. 选择分区号，直接 `Enter`， 使用默认值，fdisk 会自动选择刚刚新建的分区
+   7. 输入 `24`，使用 Linux root (x86-64) 类型
 3. 新建 Linux swap 分区
    1. 输入 `n`
-   2. 选择分区类型（p：主分区，e：扩展分区），默认选择 p ，直接 `Enter`
-   3. 选择分区区号，直接 `Enter`，使用默认值，fdisk 会自动递增分区号
-   4. 分区开始扇区号，直接 `Enter`，使用默认值
-   5. 分区结束扇区号，比如 `+8G`
-   6. 输入 `t` 修改刚刚创建的分区类型
-   7. 选择分区号，直接 `Enter`， 使用默认值，fdisk 会自动选择刚刚新建的分区
-   8. 输入 `19`，使用 Linux swap 类型
+   2. 选择分区区号，直接 `Enter`，使用默认值，fdisk 会自动递增分区号
+   3. 分区开始扇区号，直接 `Enter`，使用默认值
+   4. 分区结束扇区号，比如 `+8G`
+   5. 输入 `t` 修改刚刚创建的分区类型
+   6. 选择分区号，直接 `Enter`， 使用默认值，fdisk 会自动选择刚刚新建的分区
+   7. 输入 `19`，使用 Linux swap 类型
 4. 保存新建的分区
    1. 输入 `w`
 
@@ -136,7 +139,7 @@ swapon /dev/nvme0n1p3
 ###### 显示 dm 状态
 
 ```bash
-dmsetup status 
+dmsetup status
 ```
 
 ###### 删除 dm
@@ -187,6 +190,10 @@ hwclock --systohc
 
 ## 本地化
 
+```bash
+pacman -S vim
+```
+
 修改 /etc/locale.gen
 
 ```
@@ -226,6 +233,7 @@ beta
 ```
 
 ```bash
+pacman -S dhcpcd
 systemctl enable dhcpcd
 ```
 
@@ -238,7 +246,7 @@ passwd
 ## 安装 Microcode
 
 * AMD CPU
-  
+
   ```bash
   pacman -S amd-ucode
   ```
