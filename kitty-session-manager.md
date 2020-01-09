@@ -1,5 +1,10 @@
 KiTTY Session Manager Build
 
+## 中文显示乱码 bug 处理
+
+* https://stackoverflow.com/questions/4967051/why-cant-i-find-or-use-urlencode-in-visual-studio-2010
+* https://www.cnblogs.com/wang726zq/archive/2012/11/01/unicode.html
+
 ## Visual Studio 2010 (编译)
 
 * 打开 Visual Studio 命令提示(2010)
