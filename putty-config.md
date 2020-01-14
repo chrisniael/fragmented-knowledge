@@ -35,7 +35,7 @@ original 版本不支持
 
 ## 打开菜单快捷键
 
-* Window - Behaviour : System menu appears on Alt+Space
+* Window - Behaviour : System menu appears on Alt alone
 
 ## 隐藏滚动
 
