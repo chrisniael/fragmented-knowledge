@@ -14,6 +14,11 @@
 * 失去焦点时自动隐藏 Wox
 * 隐藏任务栏图标 (隐藏后可以输入 settings 呼出)
 * 语言：中文
+* 上一次搜索关键字模式：全选上一次关键字
+
+    这块有 bug，暂时的解决方案：使用 Windows 7 兼容性模式运行，要设置 2 个地方
+    * 桌面 Wox 快捷方式 - 属性 - 兼容性 - 以兼容性模式运行这个程序 - Windows 7 
+    * 任务管理器 - 启动 - Wox - 属性 - 兼容性 - 以兼容性模式运行这个程序 - Windows 7
 * python path
 
     add it to %PATH% or set it in WoX settings
