@@ -968,3 +968,9 @@ git branch --unset-upstream  // 删除当前分支关联
 # -N : 不适用兼容模式
 vim -u NONE -N
 ```
+
+## ssh exit 后不退出
+
+Mac 使用 X11 Forwarding 的时候会出现，大致原因应该是 Xquartz 导致的，关掉 XQuartz 后，ssh 就退出了。
+
+https://unix.stackexchange.com/questions/31030/ssh-not-terminated-after-exit-when-there-is-x-forward-program
