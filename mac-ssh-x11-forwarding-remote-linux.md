@@ -1,5 +1,7 @@
 # Mac X11 Forwarding To Remote Linux
 
+## 参考
+
 
 ## XQuartz 设置
 
@@ -29,6 +31,7 @@ defaults write org.macosforge.xquartz.X11 app_to_run /usr/bin/true
 
 关于 clipboard, primary 可以参考：https://wiki.archlinux.org/index.php/Clipboard
 
+* https://gist.github.com/benjaminhawkeslewis/2623263
 
 #### Warning: No xauth data; using fake authentication data for X11 forwarding
 
