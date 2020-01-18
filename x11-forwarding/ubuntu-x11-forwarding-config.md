@@ -21,6 +21,8 @@ Arch 没有这样的问题，不需要配置环境变量 XAUTHORITY 就可以知
 export XAUTHORITY=$HOME/.Xauthority
 ```
 
+* https://community.hpe.com/t5/Networking/X11-connection-rejected-because-of-wrong-authentication/td-p/6987197#.XiMluy3ogWl
+
 ## 客户端使用
 
 #### 方法一

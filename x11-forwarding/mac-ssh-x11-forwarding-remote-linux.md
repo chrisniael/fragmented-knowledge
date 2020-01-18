@@ -41,11 +41,23 @@ defaults write org.macosforge.xquartz.X11 app_to_run /usr/bin/true
 xauth generate $DISPLAY . 
 ```
 
-或者使用 `ssh -X` 来登陆（不推荐）
+或者不使用 `-Y` 参数来登陆（不推荐）
+
+```bash
+SSH -X user@host  # without -Y
+```
 
 * https://serverfault.com/a/657996
 * https://www.xquartz.org/FAQs.html
 
+
+#### Enable Indirect GLX
+
+```bash
+defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
+```
+
+* https://it.stonybrook.edu/help/kb/how-to-use-x11-tunnelling-with-interactive-jobs
 
 #### 开机自动启动
 
