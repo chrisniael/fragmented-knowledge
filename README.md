@@ -992,6 +992,6 @@ man brew-cask
 If --greedy is given then also include in the output the Casks having auto_updates true  or  version  :latest. Otherwise  they are skipped because there is no reliable way to know when updates are available for them.
 ```
 
-简单来说就是 cask 认为它的 latest 和你本地的 latest 不是同的。推测就是这些没有版本管理的的 cask app 会被 cask 用 leatest 标记版本，这样就不能知道用户本地的 app 是否是最新的，cask 选择的做法是认为不是最新的，让用户自己选择是否重新安装 cask 认识的 latest 版本。a
+简单来说就是 cask 认为它的 latest 和你本地的 latest 不是同的。推测就是这些没有版本管理的的 cask app 会被 cask 用 leatest 标记版本，这样就不能知道用户本地的 app 是否是最新的，cask 选择的做法是认为不是最新的，让用户自己选择是否重新安装 cask 认识的 latest 版本。
 
 * https://discourse.brew.sh/t/brew-cask-outdated-greedy/3391
