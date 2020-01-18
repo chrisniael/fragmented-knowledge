@@ -974,3 +974,10 @@ vim -u NONE -N
 Mac 使用 X11 Forwarding 的时候会出现，大致原因应该是 Xquartz 导致的，关掉 XQuartz 后，ssh 就退出了。
 
 https://unix.stackexchange.com/questions/31030/ssh-not-terminated-after-exit-when-there-is-x-forward-program
+
+
+## useradd 创建 home 目录
+
+```bash
+useradd -m <username>
+```
