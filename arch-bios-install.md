@@ -155,7 +155,7 @@ vim /etc/pacman.d/mirrorlist
 ## 安装 Arch 和 Package Group
 
 ```bash
-pacstrap /mnt base base-devel
+pacstrap /mnt base base-devel linux linux-firmware
 ```
 
 ## 生成 fstab 文件
