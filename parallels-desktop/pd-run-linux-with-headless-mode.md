@@ -9,3 +9,4 @@
     prlctl list  # 显示启动着的 vm
     ```
     * https://stackoverflow.com/questions/17098927/how-do-i-run-ubuntu-server-headless-using-parallels-desktop
+    * https://www.macissues.com/2016/01/03/how-to-run-headless-virtual-machines-in-os-x/
