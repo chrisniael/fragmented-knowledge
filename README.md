@@ -995,3 +995,31 @@ If --greedy is given then also include in the output the Casks having auto_updat
 简单来说就是 cask 认为它的 latest 和你本地的 latest 不是同的。推测就是这些没有版本管理的的 cask app 会被 cask 用 leatest 标记版本，这样就不能知道用户本地的 app 是否是最新的，cask 选择的做法是认为不是最新的，让用户自己选择是否重新安装 cask 认识的 latest 版本。
 
 * https://discourse.brew.sh/t/brew-cask-outdated-greedy/3391
+
+## Vim 按 Unicode 搜索字符
+
+搜索单个 Unicode 字符
+
+```vim
+/[\x7F]
+```
+
+指定 Unicode 范围搜索
+
+```vim
+/[\x00-\x7F]
+```
+
+取反
+
+```vim
+/[^\x00-\x7F]
+```
+
+以十进制搜索
+
+```vim
+/[^\d0-\d127]
+```
+
+* https://stackoverflow.com/a/16987522
