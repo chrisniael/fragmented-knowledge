@@ -1,5 +1,14 @@
 # Ubuntu X11 Forwarding
 
+## 安装依赖
+
+* sshd
+* xauth
+
+```bash
+apt install openssh org-xauth
+```
+
 ## sshd 配置
 
 ```config
