@@ -37,14 +37,24 @@ defaults write org.macosforge.xquartz.X11 app_to_run /usr/bin/true
 
 环境变量 DISPLAY 不需要在 .zshrc 中手动设置，xquartz.startx 服务默认会自动给设置，xquartz.startx 服务默认是开启的
 
+可以不使用 `-Y` 参数来登陆（不推荐）
+
 ```bash
-xauth generate $DISPLAY . 
+SSH -X user@host  # without -XY
 ```
 
-或者不使用 `-Y` 参数来登陆（不推荐）
+输出 ssh 登陆时调试信息，查看问题所在
 
 ```bash
-SSH -X user@host  # without -Y
+ssh -XY -v user@host
+```
+
+可能是没有指定客户端的 xauth 路径
+
+```config
+# ~/.ssh/config
+Host *
+    XAuthLocation /opt/X11/bin/xauth
 ```
 
 * https://serverfault.com/a/657996
