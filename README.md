@@ -1,7 +1,8 @@
-# Fragmented Knowledge
+# TIL
 
-这里是一些零碎知识点的记录，内容比较随意。
+> Today I Learned
 
+记录一些遇到的很细小的知识点。
 
 ## Windows 编译 Boost
 
@@ -1023,3 +1024,12 @@ If --greedy is given then also include in the output the Casks having auto_updat
 ```
 
 * https://stackoverflow.com/a/16987522
+
+
+## 无线路由器 WDS
+
+WDS 桥接功能可以将无线路由器通过 WI-FI 连接到已有的路由器，实现下面功能：
+
+* 消除 WI-FI 盲点
+* 扩展 WI-FI 范围
+* 移动漫游
