@@ -9,3 +9,13 @@
 ## -L, --location
 
 当 HTTP response code 是 3xx 时，curl 会重新请求新的地址。
+
+## -S, --show-error
+
+当和 -s, --silent 一起使用时，curl 会在出错时显示错误信息。
+
+## -s, --silent
+
+不显示下载进度条和错误信息。
+
+当和 -S, --show-error 一起使用时可以关闭下载进度条但是显示错误信息。
