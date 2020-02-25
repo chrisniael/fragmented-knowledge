@@ -1033,3 +1033,12 @@ WDS 桥接功能可以将无线路由器通过 WI-FI 连接到已有的路由器
 * 消除 WI-FI 盲点
 * 扩展 WI-FI 范围
 * 移动漫游
+
+
+## ssh 远程执行脚本
+
+```bash
+ssh <user>@<host> "bash --login script.sh"
+```
+
+* --login : Make bash act as if it had been invoked as a login shell
