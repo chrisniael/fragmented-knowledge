@@ -11,9 +11,12 @@ https://github.com/kchen0x/gruvbox-xshell
 * 工具 配色方案 导入 GruvBox.xcs
 * 文件 → 打开 → 右击对应会话 → 属性 → 外观 → 配色方案 → GruvBox-Dark
 
-## 本地 Shell 配色方案
+## 默认会话配色方案
 
-按钮栏有个配色方案的按钮 → GruvBox-Dark
+https://github.com/kchen0x/gruvbox-xshell
+
+* 工具 → 配色方案 → 导入 → GruvBox.xcs (上面导入过就不用再导入了)
+* 文件 → 默认会话属性 → 外观 → 配色方案 → GruvBox-Dark
 
 ## 会话字体
 
@@ -24,9 +27,10 @@ sarasa-regular.ttc
 * 文件 → 打开 → 右击对应会话 → 属性 → 外观 → 字体 → 字体名 → 等距更纱黑体 T SC → 12
 * 文件 → 打开 → 右击对应会话 → 属性 → 外观 → 字体 → 亚洲字体 → 等距更纱黑体 T SC → 12
 
-## 本地 Shell 字体
+## 默认会话字体
 
-按钮栏有个字体符号的按钮 → 等距更纱黑体 T SC → 12
+* 文件 → 默认会话属性 → 外观 → 字体 → 字体名 → 等距更纱黑体 T SC → 12
+* 文件 → 默认会话属性 → 外观 → 字体 → 亚洲字体 → 等距更纱黑体 T SC → 12
 
 ## "加粗"文本
 
