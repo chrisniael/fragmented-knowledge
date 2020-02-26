@@ -1050,7 +1050,10 @@ ssh <user>@<host> "bash --login script.sh"
 brew cask outdated --greedy
 ```
 
+更新所有 app
+
 ```bash
-#升级所有
 alias brew-cask-upgrade="brew cask upgrade \$(brew cask outdated --greedy --verbose | grep -v latest | awk -F ' ' '{print \$1}' | tr '\n' ' ')"
 ```
+
+可以 alias 一下配置到 .bashrc/.zshrc 里
