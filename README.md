@@ -1042,3 +1042,15 @@ ssh <user>@<host> "bash --login script.sh"
 ```
 
 * --login : Make bash act as if it had been invoked as a login shell
+
+
+## HomeBrew Cask 查看/升级有新版本的 app
+
+```bash
+brew cask outdated --greedy
+```
+
+```bash
+#升级所有
+alias brew-cask-upgrade="brew cask upgrade \$(brew cask outdated --greedy --verbose | grep -v latest | awk -F ' ' '{print \$1}' | tr '\n' ' ')"
+```
