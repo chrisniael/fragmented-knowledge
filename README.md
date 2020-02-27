@@ -1057,3 +1057,12 @@ alias brew-cask-upgrade="brew cask upgrade \$(brew cask outdated --greedy --verb
 ```
 
 可以 alias 一下配置到 .bashrc/.zshrc 里
+
+
+## 去除 About sudo 提示信息
+
+第一次使用 sudo 时会提示 about sudo 信息，然后 sudo 会在建立一个空文件 `~/.sudo_as_admin_successful`，然后下次运行 sudo 就不会有提示信息了。
+
+```bash
+touch ~/.sudo_as_admin_successful
+```
