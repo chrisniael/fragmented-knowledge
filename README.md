@@ -1066,3 +1066,5 @@ alias brew-cask-upgrade="brew cask upgrade \$(brew cask outdated --greedy --verb
 ```bash
 touch ~/.sudo_as_admin_successful
 ```
+
+https://askubuntu.com/a/22614
