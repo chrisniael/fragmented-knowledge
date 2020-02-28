@@ -1068,3 +1068,23 @@ touch ~/.sudo_as_admin_successful
 ```
 
 https://askubuntu.com/a/22614
+
+## kill 某个用户的所有进程
+
+```bash
+killall -u USERNAME
+pkill -U UID
+pkill -u UID
+```
+
+https://unix.stackexchange.com/a/18044
+
+## Vim 显示斜体文字
+
+```vim
+highlight Comment cterm=italic gui=italic
+```
+
+还需要终端支持斜体字体显示。
+
+https://stackoverflow.com/a/3494948
