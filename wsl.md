@@ -50,6 +50,8 @@ https://blog.wzdxy.com/2018/11/wsl-start/
 
 ## 重启 WSL
 
+以管理员身份运行 PowerShell，然后执行下面的命令
+
 ```bash
 Get-Service LxssManager | Restart-Service
 ```
