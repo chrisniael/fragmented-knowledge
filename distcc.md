@@ -64,6 +64,13 @@ make -j32
 
 `make -j` 数量别超过 `distcc -j` 的返回值。
 
+或者直接设置环境变量 `CC` 和 `CXX`
+
+```bash
+export CC='distcc gcc'
+export CXX='distcc g++'
+```
+
 查看当前编译任务
 
 ```bash
