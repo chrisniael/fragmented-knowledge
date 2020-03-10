@@ -50,10 +50,17 @@ https://blog.wzdxy.com/2018/11/wsl-start/
 
 ## 重启 WSL
 
-以管理员身份运行 PowerShell，然后执行下面的命令
+1. 以管理员身份运行 PowerShell，然后执行下面的命令
 
-```bash
-Get-Service LxssManager | Restart-Service
-```
+   ```cmd
+   Get-Service LxssManager | Restart-Service
+   ```
 
-或者手动去重启 LxssManager 服务。
+2. 以管理员身份运行 CMD, 然后执行下面的命令
+
+  ```cmd
+  sc stop LxssManager
+  sc start LxssManager
+  ```
+
+3. 手动去重启 LxssManager 服务。
