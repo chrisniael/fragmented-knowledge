@@ -64,3 +64,31 @@ https://blog.wzdxy.com/2018/11/wsl-start/
   ```
 
 3. 手动去重启 LxssManager 服务。
+
+## WSL 忘记用户密码
+
+打开 CMD
+
+```cmd
+ubuntu config --default-user root
+ubuntu
+```
+
+现在使用 root 登陆了 WSL
+
+```bash
+whoami
+passwd shenyu
+```
+
+然后再把 WSL 的默认用户更改回去
+
+```cmd
+ubuntu config --default-user shenyu
+```
+
+* Ubuntu: ubuntu config --default-user root
+* openSUSE Leap 42: openSUSE-42 config --default-user root
+* SUSE Linux: SLES-12 config --default-user root
+* Debian: debian config --default-user root
+* Kali Linux: kali config --default-user root
