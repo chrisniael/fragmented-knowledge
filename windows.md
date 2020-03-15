@@ -32,3 +32,9 @@ shell:programs
 sc config beep start= disabled
 sc stop beep
 ```
+
+## 关闭 UAC 提示音 
+
+控制面板 - 硬件和声音 - 更改系统声音
+
+将 **Windows 用户账户控制** 这个程序事件的声音设置成 **(无)**
