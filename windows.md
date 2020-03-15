@@ -23,3 +23,12 @@ shell:common startup
 
 shell:common programs
 shell:programs
+
+## 关闭 CMD 提示音
+
+以管理员身份打开 CMD，执行
+
+```cmd
+sc config beep start= disabled
+sc stop beep
+```
