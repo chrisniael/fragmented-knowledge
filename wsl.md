@@ -99,3 +99,26 @@ ubuntu config --default-user shenyu
 # /etc/inputrc
 set bell-style none
 ```
+
+## 升级 Ubuntu 至 19.10a
+
+```bash
+sudo su -
+apt update
+apt upgrade
+cat /etc/os-release
+```
+
+打开 `/etc/update-manager/release-upgrades`，将 `Prompt` 的值改成 `normal`
+
+```cfg
+# /etc/update-manager/release-upgrades
+Prompt=normal
+```
+
+```bash
+apt update
+do-release-upgrade -c
+do-release-upgrade
+cat /etc/os-release
+```
