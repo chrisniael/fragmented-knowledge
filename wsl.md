@@ -92,3 +92,10 @@ ubuntu config --default-user shenyu
 * SUSE Linux: SLES-12 config --default-user root
 * Debian: debian config --default-user root
 * Kali Linux: kali config --default-user root
+
+## 关闭 Bell 声音
+
+```bash
+# /etc/inputrc
+set bell-style none
+```
