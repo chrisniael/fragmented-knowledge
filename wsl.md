@@ -123,6 +123,8 @@ do-release-upgrade
 cat /etc/os-release
 ```
 
+期间会出现 Configuring lxd 询问，选 Skip。
+
 ## wsltty
 
 1. 安装
