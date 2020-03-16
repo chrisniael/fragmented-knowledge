@@ -127,32 +127,32 @@ cat /etc/os-release
 
 1. 安装
 
-https://github.com/mintty/wsltty/releases
+   https://github.com/mintty/wsltty/releases
 
 2. 配置快捷方式
 
-组件目录 : `%LOCALAPPDATA%/wsltty`
+   组件目录 : `%LOCALAPPDATA%/wsltty`
 
-双击运行这个目录中的下面这两个文件：
+   双击运行这个目录中的下面这两个文件：
 
-* configure WSL shortcuts : 添加 WSL Terminal 至开始菜单
-* add default to context menu : 添加 WSL Terminal 至鼠标右键菜单
+   * configure WSL shortcuts : 添加 WSL Terminal 至开始菜单
+   * add default to context menu : 添加 WSL Terminal 至鼠标右键菜单
 
-然后就可以通过开始菜单和鼠标右键打开 WSL Terminal 了。
+   然后就可以通过开始菜单和鼠标右键打开 WSL Terminal 了。
 
 3. 配置 mintty
 
-配置目录 : `%APPDATA%/wsltty`
+   配置目录 : `%APPDATA%/wsltty`
 
-https://github.com/chrisniael/gruvbox-contrib/tree/mintty-dark-white/mintty
+   https://github.com/chrisniael/gruvbox-contrib/tree/mintty-dark-white/mintty
 
-将 mintty 的 gruvbox 主题文件放在 `%APPDATA%/wsltty/themes` 目录下。
+   将 mintty 的 gruvbox 主题文件放在 `%APPDATA%/wsltty/themes` 目录下。
 
-* Looks - Theme - gruvbox-dark-medium
-* Looks - Cursor - Block
-* Looks - Cursor - No Blinking
-* Text - Font - 等距更纱黑体 T SC - 12
-* Text - Show bold - as font
-* Window - Scollbar - None
-* Terminal - Type - xterm-256color
-* Terminal - Bell - no beep
+   * Looks - Theme - gruvbox-dark-medium
+   * Looks - Cursor - Block
+   * Looks - Cursor - No Blinking
+   * Text - Font - 等距更纱黑体 T SC - 12
+   * Text - Show bold - as font
+   * Window - Scollbar - None
+   * Terminal - Type - xterm-256color
+   * Terminal - Bell - no beep
