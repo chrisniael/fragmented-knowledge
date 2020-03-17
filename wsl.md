@@ -158,3 +158,33 @@ cat /etc/os-release
    * Window - Scollbar - None
    * Terminal - Type - xterm-256color
    * Terminal - Bell - no beep
+
+## 目录的默认访问权限
+
+Windows 磁盘默认挂在在 `/mnt` 目录下，且目录的默认权限是 777。
+
+在 WSL 中增加 `/etc/wsl.conf` 配置
+
+```
+# /etc/wsl.conf
+[automount]
+enabled = true
+options = "metadata,umask=22,fmask=11"
+```
+
+然后重启一下 WSL，使配置生效。
+
+
+在 WSL 里新建目录的的权限也是 777，root 用户却是正常的 755。
+
+在用户的 shell(.bashrc/.zshrc) 配置里增加下面这行配置
+
+```bash
+if [[ "$(umask)" = "000" ]]; then
+  umask 022
+fi
+```
+
+然后 source 一下 shell 的配置，或者重新登陆一下 WSL，使配置生效。
+
+https://www.turek.dev/post/fix-wsl-file-permissions/
