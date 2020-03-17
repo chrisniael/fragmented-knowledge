@@ -188,3 +188,16 @@ fi
 然后 source 一下 shell 的配置，或者重新登陆一下 WSL，使配置生效。
 
 https://www.turek.dev/post/fix-wsl-file-permissions/
+
+## 服务管理
+
+WSL 中不能使用 systemctl 管理服务，只能通过 service 来管理，例如：
+
+```bash
+/etc/init.d/redis-server start
+service redis-server start
+```
+
+且不能让服务开机自动启动。
+
+https://github.com/MicrosoftDocs/WSL/issues/457
