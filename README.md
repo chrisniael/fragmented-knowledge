@@ -1099,3 +1099,11 @@ https://stackoverflow.com/a/3494948
 taskkill /F /IM explorer.exe
 explorer.exe
 ```
+
+## 合并两个文件夹 (覆盖旧文件)
+
+将 source 目录合并至 distination/source 目录
+
+```bash
+rsync -av source distination
+```
