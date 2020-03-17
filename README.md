@@ -1088,3 +1088,14 @@ highlight Comment cterm=italic gui=italic
 还需要终端支持斜体字体显示。
 
 https://stackoverflow.com/a/3494948
+
+## Chrome/Edge 网页桌面程序更换图标
+
+替换完 icon 后，重启一下 explorer.exe 进程就可以加载新的 icon 了，否则可能不会生效。
+
+使用管理员身份打开 CMD，执行下面的命令：
+
+```cmd
+taskkill /F /IM explorer.exe
+explorer.exe
+```
