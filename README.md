@@ -1089,19 +1089,6 @@ highlight Comment cterm=italic gui=italic
 
 https://stackoverflow.com/a/3494948
 
-## Chrome/Edge 网页桌面程序更换图标
-
-快捷方式路径：`%APPDATA%\Microsoft\Windows\Start Menu\Programs\Chrome 应用`
-
-替换完 icon 后，重启一下 explorer.exe 进程就可以加载新的 icon 了，否则可能不会生效。
-
-使用管理员身份打开 CMD，执行下面的命令：
-
-```cmd
-taskkill /F /IM explorer.exe
-explorer.exe
-```
-
 ## 合并两个文件夹 (覆盖旧文件)
 
 将 source 目录合并至 distination/source 目录

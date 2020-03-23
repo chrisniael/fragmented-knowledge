@@ -46,3 +46,24 @@ sc stop beep
 去除所有目录
 
 控制面板 - 索引选项 - 高级 - 索引设置 - 疑难解答 - 删除和重建索引 - 重建
+
+## 重置 thumbnailcache
+
+以管理员身份打开 CMD，执行
+
+```cmd
+taskkill /f /im explorer.exe
+del /f /s /q /a %LocalAppData%\Microsoft\Windows\Explorer\thumbcache_*.db
+start explorer.exe
+```
+
+## 重建 iconcache
+
+以管理员身份打开 CMD，执行
+
+```cmd
+taskkill /f /im explorer.exe
+del /f /s /q /a %LocalAppData%\IconCache.db
+del /f /s /q /a %LocalAppData%\Microsoft\Windows\Explorer\iconcache_*.db
+start explorer.exe
+```
