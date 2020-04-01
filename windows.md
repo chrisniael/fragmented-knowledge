@@ -67,3 +67,22 @@ del /f /s /q /a %LocalAppData%\IconCache.db
 del /f /s /q /a %LocalAppData%\Microsoft\Windows\Explorer\iconcache_*.db
 start explorer.exe
 ```
+
+## 查看端口占用
+
+```cmd
+netstat -ano | findstr "1080"
+```
+最后一列是进程的 PID
+
+## 查看 PID 进程名
+
+```cmd
+tasklist | findstr "9088"
+```
+
+## 结束 PID 进程
+
+```cmd
+taskkill /t /f /pid 9088 
+```
