@@ -84,7 +84,8 @@ fdisk /dev/sda
 fdisk /dev/sda
 ```
 
-1 sector = 512 bytes
+1 sector = 512 bytes  
+[swap sector from] = [sector end] - [swap size(GB)] * 1024 * 1024 * 1024 / 512
 
 1. 新建 Linux root 分区
    1. 输入 `n`
@@ -145,10 +146,6 @@ mount /dev/sda1 /mnt
 ## 配置 pacman mirror
 
 ```bash
-pacman -S vim
-```
-
-```bash
 vim /etc/pacman.d/mirrorlist
 ```
 
@@ -170,15 +167,11 @@ genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ```
 
-## 设置时区
+## 本地化
 
 ```bash
-timedatectl set-ntp true
-timedatectl set-timezone Asia/Shanghai
-hwclock --systohc
+pacman -S vim
 ```
-
-## 本地化
 
 修改 /etc/locale.gen
 
@@ -263,4 +256,40 @@ systemctl enable gdm
 ```bash
 exit    # 退出 chroot 环境
 reboot
+```
+
+## 启动后需要设置的
+
+#### 设置时区
+
+```bash
+timedatectl set-ntp true
+timedatectl set-timezone Asia/Shanghai
+hwclock --systohc
+```
+
+#### 安装配置 openssl
+
+```bash
+pacman -S openssl
+systemctl start sshd
+systemctl enable sshd
+```
+
+#### 配置 X11 转发
+
+```bash
+pacman -S xorg-xauth
+```
+
+```conf
+# /etc/ssh/sshd_config
+
+X11Forwarding yes
+```
+
+#### 新建用户
+
+```bash
+useradd -m <username>
 ```

@@ -180,14 +180,6 @@ genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ```
 
-## 设置时区
-
-```bash
-timedatectl set-ntp true
-timedatectl set-timezone Asia/Shanghai
-hwclock --systohc
-```
-
 ## 本地化
 
 ```bash
@@ -278,4 +270,40 @@ systemctl enable gdm
 ```bash
 exit    # 退出 chroot 环境
 reboot
+```
+
+## 启动后需要设置的
+
+#### 设置时区
+
+```bash
+timedatectl set-ntp true
+timedatectl set-timezone Asia/Shanghai
+hwclock --systohc
+```
+
+#### 安装配置 openssl
+
+```bash
+pacman -S openssl
+systemctl start sshd
+systemctl enable sshd
+```
+
+#### 配置 X11 转发
+
+```bash
+pacman -S xorg-xauth
+```
+
+```conf
+# /etc/ssh/sshd_config
+
+X11Forwarding yes
+```
+
+#### 新建用户
+
+```bash
+useradd -m <username>
 ```
