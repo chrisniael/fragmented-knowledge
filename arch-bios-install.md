@@ -1,4 +1,4 @@
-# Arch Linux (BIOS/MBR) 安装指南
+# Arch Linux (BIOS with MBR) 安装指南
 
 ## 下载 Arch Linux 镜像
 
@@ -7,12 +7,24 @@ https://www.archlinux.org/download/
 ## 验证镜像完整性
 
 ```bash
-md5 archlinux-2019.05.02-x86_64.iso
+md5 archlinux-2020.04.01-x86_64.iso
 ```
+
+将输出和下载页面提供的 md5 值对比一下，看看是否一致，不一致则不要继续安装，换个节点重新下载直到一致为止。
 
 ## 镜像写入 U 盘
 
 * Linux/Unix: dd
+
+  用 lsblk 找到 U 盘并确保没有挂载  
+  用 U 盘替换 /dev/sdx，如 /dev/sdb。（不要加上数字，也就是说，不要键入 /dev/sdb1 之类的东西)
+
+  ```bash
+  dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress && sync
+  ```
+
+  等待 sync 完成，所有数据都写入之后再拔掉 U 盘。
+
 * MacOS: [balenaEtcher](https://github.com/balena-io/etcher)
 * Windows: [USBWriter](https://sourceforge.net/projects/usbwriter/)
 
@@ -28,7 +40,7 @@ md5 archlinux-2019.05.02-x86_64.iso
 ls /sys/firmware/efi/efivars
 ```
 
-如果 /sys/firmware/efi/efivars 目录存在，则系统可能是从 UEFI 模式启动的。
+如果 /sys/firmware/efi/efivars 目录存在，那么系统应该是基于 UEFI 启动的，在主板设置里关闭 UEFI 模式，或者参考 *Arch Linux (UEFI with GPT) 安装*。
 
 ## 连接 internet
 
@@ -40,7 +52,7 @@ ip link
 
 #### 连接
 
-对于有线网络，安装镜像启动的时候，默认会启动 dhcpcd，如果没有启动，可以手动启动
+对于有线网络，安装镜像启动的时候，默认会启动 dhcpcd，如果没有启动，可以手动启动：
 
 ```bash
 dhcpcd
@@ -56,7 +68,6 @@ ping shenyu.me
 
 ```
 timedatectl set-ntp true
-timedatectl set-timezone Asia/Shanghai
 ```
 
 ## 磁盘分区
@@ -80,19 +91,20 @@ fdisk /dev/sda
 
 #### 分区创建
 
-```bash
-fdisk /dev/sda
-```
 
 1 sector = 512 bytes  
 [swap sector from] = [sector end] - [swap size(GB)] * 1024 * 1024 * 1024 / 512
+
+```bash
+fdisk /dev/sda
+```
 
 1. 新建 Linux root 分区
    1. 输入 `n`
    2. 选择分区类型（p：主分区，e：扩展分区），默认选择 p ，直接 `Enter`
    3. 选择分区区号，直接 `Enter`，使用默认值，fdisk 会自动递增分区号
    4. 分区开始扇区号，直接 `Enter`，使用默认值
-   5. 分区结束扇区号，例如：`+100G`（剩余空间 - 分配给 swap 分区的空间）
+   5. 分区结束扇区号，这里要考虑预留给 swap = 磁盘结束扇区号 - 分配给 swap 分区的空间 (GB) * 1024 * 1024 * 1024 / 512，然后 `Enter`
    6. 输入 `t` 修改刚刚创建的分区类型
    7. 选择分区号，直接 `Enter`， 使用默认值，fdisk 会自动选择刚刚新建的分区
    8. 输入 `83`，使用 Linux 类型
@@ -101,7 +113,7 @@ fdisk /dev/sda
    2. 选择分区类型（p：主分区，e：扩展分区），默认选择 p ，直接 `Enter`
    3. 选择分区区号，直接 `Enter`，使用默认值，fdisk 会自动递增分区号
    4. 分区开始扇区号，直接 `Enter`，使用默认值
-   5. 分区结束扇区号，例如 `+8G`
+   5. 分区结束扇区号，直接 `Enter`，使用默认值
    6. 输入 `t` 修改刚刚创建的分区类型
    7. 选择分区号，直接 `Enter`， 使用默认值，fdisk 会自动选择刚刚新建的分区
    8. 输入 `82`，使用 Linux swap 类型
@@ -149,11 +161,19 @@ mount /dev/sda1 /mnt
 vim /etc/pacman.d/mirrorlist
 ```
 
-## 安装 Arch 和 Package Group
+所有安装的 package 其实是从 mirror 服务器上下载的，mirror 服务器的列表定义在 /etc/pacman.d/mirrorlist。  
+mirror 被定义的位置越靠上面，被使用的优先级越高，所以根据地理位置信息，将最近的 mirror 移动至配置的最上面。  
+这个配置之后会被 pacstrap 拷贝到安装的系统中，所以最好现在就配置一下。
+
+## 安装必须的 Package
 
 ```bash
 pacstrap /mnt base base-devel linux linux-firmware
 ```
+
+之前版本 live system 中，linux 和 linux-firmware 包含在了 base 里了，最新的 live system 把这两个 package 从 base 中分离里出来，所以一定要手动指定。
+
+想要安装其他 package 和 package group，可以将名字添加上面的 pacstrap 命令后面，或者在 arch-chroot 之后使用 pacman 来安装。live system 自带的 package 可以查看 [packages.x86_64](https://git.archlinux.org/archiso.git/tree/configs/releng/packages.x86_64)。
 
 ## 生成 fstab 文件
 
@@ -167,13 +187,27 @@ genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ```
 
+## 设置时区
+
+```bash
+ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+```
+
+将 Region 和 City 替换成相应的洲和城市，例如：Asia/Shanghai
+
+执行 hwclock 生成 /etc/adjtime：
+
+```bash
+hwclock --systohc
+```
+
 ## 本地化
 
 ```bash
 pacman -S vim
 ```
 
-修改 /etc/locale.gen
+修改 /etc/locale.gen，取消注释下面这两行配置
 
 ```
 # /etc/locale.gen
@@ -201,14 +235,15 @@ LANG=en_US.UTF-8
 ```
 # /etc/hostname
 
-beta
+myhostname
 ```
 
 ```
-/etc/hosts
+# /etc/hosts
 
-127.0.0.1    localhost
-::1          localhost
+127.0.0.1	localhost
+::1				localhost
+127.0.1.1	myhostname.localdomain	myhostname
 ```
 
 ```bash
@@ -264,8 +299,8 @@ reboot
 
 ```bash
 timedatectl set-ntp true
-timedatectl set-timezone Asia/Shanghai
-hwclock --systohc
+# timedatectl set-timezone Asia/Shanghai  # 安装的时候已经配置过了
+# hwclock --systohc  # 安装的时候已经配置过了
 ```
 
 #### 安装配置 openssl
@@ -292,12 +327,13 @@ X11Forwarding yes
 
 ```bash
 useradd -m <username>
+passwd <username>
 ```
 
 #### 一些常用的软件
 
 ```bash
-pacman -S zsh git tmux python python-pip xsel wget nodejs npm clang ripgrep man-db man-pages cmake protobuf hiredis htop gperftools screenfetch
+pacman -S zsh git tmux python python-pip xsel wget nodejs npm clang ripgrep man-db man-pages texinfo cmake protobuf hiredis htop gperftools screenfetch
 pip install pynvim
 pip install cpplint
 npm install -g neovim bash-language-server

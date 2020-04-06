@@ -1,4 +1,4 @@
-# Arch Linux (EFI/GPT) 安装指南
+# Arch Linux (EFI with GPT) 安装指南
 
 ## 下载 Arch Linux 镜像
 
@@ -7,12 +7,24 @@ https://www.archlinux.org/download/
 ## 验证镜像完整性
 
 ```bash
-md5 archlinux-2019.05.02-x86_64.iso
+md5 archlinux-2020.04.01-x86_64.iso
 ```
+
+将输出和下载页面提供的 md5 值对比一下，看看是否一致，不一致则不要继续安装，换个节点重新下载直到一致为止。
 
 ## 镜像写入 U 盘
 
 * Linux/Unix: dd
+
+  用 lsblk 找到 U 盘并确保没有挂载  
+  用 U 盘替换 /dev/sdx，如 /dev/sdb。（不要加上数字，也就是说，不要键入 /dev/sdb1 之类的东西)
+
+  ```bash
+  dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress && sync
+  ```
+
+  等待 sync 完成，所有数据都写入之后再拔掉 U 盘。
+
 * MacOS: [balenaEtcher](https://github.com/balena-io/etcher)
 * Windows: [USBWriter](https://sourceforge.net/projects/usbwriter/)
 
@@ -28,7 +40,7 @@ md5 archlinux-2019.05.02-x86_64.iso
 ls /sys/firmware/efi/efivars
 ```
 
-如果 /sys/firmware/efi/efivars 目录不存在，则系统可能是从 BIOS 模式启动的。
+如果 /sys/firmware/efi/efivars 目录不存在，则系统可能是从 BIOS 模式启动的。参考 *Arch Linux (UEFI with GPT) 安装*。
 
 ## 连接 internet
 
@@ -40,7 +52,7 @@ ip link
 
 #### 连接
 
-对于有线网络，安装镜像启动的时候，默认会启动 dhcpcd，如果没有启动，可以手动启动
+对于有线网络，安装镜像启动的时候，默认会启动 dhcpcd，如果没有启动，可以手动启动：
 
 ```bash
 dhcpcd
@@ -56,7 +68,6 @@ ping shenyu.me
 
 ```
 timedatectl set-ntp true
-timedatectl set-timezone Asia/Shanghai
 ```
 
 ## 磁盘分区
@@ -311,7 +322,7 @@ useradd -m <username>
 #### 一些常用的软件
 
 ```bash
-pacman -S zsh git tmux python python-pip xsel wget nodejs npm clang ripgrep man-db man-pages cmake protobuf hiredis htop gperftools screenfetch
+pacman -S zsh git tmux python python-pip xsel wget nodejs npm clang ripgrep man-db man-pages texinfo cmake protobuf hiredis htop gperftools screenfetch
 pip install pynvim
 npm install -g neovim bash-language-server
 ```
