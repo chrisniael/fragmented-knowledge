@@ -311,7 +311,7 @@ useradd -m <username>
 #### 一些常用的软件
 
 ```bash
-pacman -S zsh git tmux python python-pip xsel wget nodejs npm clang ripgrep man-db man-pages
+pacman -S zsh git tmux python python-pip xsel wget nodejs npm clang ripgrep man-db man-pages cmake protobuf hiredis htop gperftools screenfetch
 pip install pynvim
 npm install -g neovim bash-language-server
 ```
