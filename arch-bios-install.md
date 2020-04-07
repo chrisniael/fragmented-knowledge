@@ -333,7 +333,7 @@ passwd <username>
 #### 一些常用的软件
 
 ```bash
-pacman -S zsh git tmux python python-pip xsel wget nodejs npm clang ripgrep man-db man-pages texinfo cmake protobuf hiredis htop gperftools screenfetch
+pacman -S zsh git tmux python python-pip xsel wget nodejs npm clang ripgrep man-db man-pages texinfo cmake protobuf hiredis htop gperftools screenfetch unzip inetutils mariadb-libs
 pip install pynvim
 pip install cpplint
 npm install -g neovim bash-language-server
