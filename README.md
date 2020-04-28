@@ -983,20 +983,6 @@ https://unix.stackexchange.com/questions/31030/ssh-not-terminated-after-exit-whe
 useradd -m <username>
 ```
 
-## HomeBrew --greedy 参数会显示 leatest 的程序
-
-```bash
-man brew-cask
-```
-
-```text
-If --greedy is given then also include in the output the Casks having auto_updates true  or  version  :latest. Otherwise  they are skipped because there is no reliable way to know when updates are available for them.
-```
-
-简单来说就是 cask 认为它的 latest 和你本地的 latest 不是同的。推测就是这些没有版本管理的的 cask app 会被 cask 用 leatest 标记版本，这样就不能知道用户本地的 app 是否是最新的，cask 选择的做法是认为不是最新的，让用户自己选择是否重新安装 cask 认识的 latest 版本。
-
-* https://discourse.brew.sh/t/brew-cask-outdated-greedy/3391
-
 ## Vim 按 Unicode 搜索字符
 
 搜索单个 Unicode 字符
@@ -1042,21 +1028,6 @@ ssh <user>@<host> "bash --login script.sh"
 ```
 
 * --login : Make bash act as if it had been invoked as a login shell
-
-
-## HomeBrew Cask 查看/升级有新版本的 app
-
-```bash
-brew cask outdated --greedy
-```
-
-更新所有 app
-
-```bash
-alias brew-cask-upgrade="brew cask upgrade \$(brew cask outdated --greedy --verbose | grep -v latest | awk -F ' ' '{print \$1}' | tr '\n' ' ')"
-```
-
-可以 alias 一下配置到 .bashrc/.zshrc 里
 
 
 ## 去除 About sudo 提示信息
