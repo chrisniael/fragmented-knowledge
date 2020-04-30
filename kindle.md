@@ -2,24 +2,11 @@
 
 探讨 Kindle 生态对 azw3、epub、mobi 和 pdf 格式文档的支持情况。
 
-## 封面显示问题
-
-* Amazon 购买
-* mobi 7 使用邮件发送至 Kindle
-* mobi 8 使用 USB 导入至 Kindle
-* azw3 使用 USB 导入至 Kindle
-
-<https://zhuanlan.zhihu.com/p/77413845>
-
-## 二级目录显示问题
-
-Kindle 处理 mobi 7 格式文档时，二级目录不能显示不正常（没有缩进），这个不是格式本身的问题，而是 Kindle 阅读器本身支持不好的原因，换其他阅读器软件是好的。
-
 ## 格式支持
 
 * Amazon 电子书购买
 
-    Amazon 购买的电子书都支持。
+    Amazon 购买的电子书肯定都支持。
 
 * Kindle 邮件导入
 
@@ -29,9 +16,24 @@ Kindle 处理 mobi 7 格式文档时，二级目录不能显示不正常（没�
 
     不支持 epub 格式，支持 azw3、mobi 和 pdf。
 
+## 封面显示问题
+
+仅仅以下几种方式导入 Kindle l的文档才能正常显示文档封面：
+
+* Amazon 购买的电子书
+* 使用 USB 导入 Kindle 的 azw3 文档
+* 使用 USB 导入 Kindle 的 mobi 8 文档
+* 使用邮件导入 Kindle 的 mobi 7 文档
+
+## 二级目录不折叠
+
+Kindle 处理 mobi 7 格式文档时，二级目录不能折叠显示，这个不是格式本身的问题，而是 Kindle 阅读器本身支持不好的原因，换其他阅读器软件是好的。
+
+pdf 格式的文档也不支持二级目录的折叠显示。
+
 ## 云端书签
 
-Amazon 购买的电子书肯定能在云端存储书签，还有就是通过能邮件导入 Kindle 的文档（mobi）也支持云端存储书签，pdf 格式除外。azw3 本来就不支持通过邮件导入 Kindle，就不用想这个功能了。
+Amazon 购买的电子书自然能在云端存储书签，还有就是通过能邮件导入 Kindle 的文档（mobi）也支持云端存储书签，pdf 格式除外。azw3 本来就不支持通过邮件导入 Kindle，就不用想这个功能了。
 
 云端书签还支持导出功能，Amazon 购买的电子书可以通过邮件导出 csv 和 pdf 格式存储的书签记录。通过邮件导入 Kindle 的文档也而可以通过邮件的方式导出书签，但存储格式是 html 的。
 
