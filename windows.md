@@ -1,23 +1,20 @@
 # Windows 一些使用技巧
 
-
 ## 自定义启动程序目录
 
-#### For current user
+### For current user
 
 C:\Users\Username\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
 win + r
 shell:startup
 
-
-#### For all user
+### For all user
 
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 
 win + r
 shell:common startup
-
 
 ## 开始菜单程序
 
@@ -33,7 +30,7 @@ sc config beep start= disabled
 sc stop beep
 ```
 
-## 关闭 UAC 提示音 
+## 关闭 UAC 提示音
 
 控制面板 - 硬件和声音 - 更改系统声音
 
@@ -73,6 +70,7 @@ start explorer.exe
 ```cmd
 netstat -ano | findstr "1080"
 ```
+
 最后一列是进程的 PID
 
 ## 查看 PID 进程名
@@ -84,5 +82,24 @@ tasklist | findstr "9088"
 ## 结束 PID 进程
 
 ```cmd
-taskkill /t /f /pid 9088 
+taskkill /t /f /pid 9088
 ```
+
+## 删除多余的网络连接
+
+方法一：
+
+设备管理器 - 查看 - 显示隐藏的设备
+
+卸载网络适配器中不需要的设备
+
+方法二：
+
+注册表
+
+```txt
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
+```
+
+删除不需要的设备目录或者更改网络设备的名字字段。
