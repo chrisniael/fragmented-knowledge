@@ -1,6 +1,5 @@
 # 安装 Google BBR
 
-
 ## CentOS 7
 
 ```bash
@@ -24,7 +23,7 @@ reboot
 
 重启后，编辑 /etc/sysctl.conf，增加下面的配置
 
-```
+```bash
 net.core.default_qdisc = fq
 net.ipv4.tcp_congestion_control = bbr
 ```
@@ -38,14 +37,16 @@ sysctl -p
 检测 BBR 是否正常启用，执行
 
 ```bash
-sysctl net.ipv4.tcp_available_congestion_control
+sysctl net.ipv4.tcp_congestion_control
 ```
 
-如果显示的值第一个是 bbr，则证明 BBR 已经正常启用。
+如果显示的值是 bbr，则证明 BBR 已经正常启用。
 
+```bash
+net.ipv4.tcp_congestion_control = bbr
 ```
-net.ipv4.tcp_available_congestion_control = bbr cubic reno
-```
+
+或者执行 `lsmod | grep bbr` 返回值有 tcp_bbr 模块说明 bbr 已启动。
 
 ## Amazon Linux AMI
 
