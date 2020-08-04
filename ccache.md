@@ -22,6 +22,14 @@ if(CCACHE_FOUND)
 endif(CCACHE_FOUND)
 ```
 
+## 通用方式集成 ccache
+
+```bash
+export CC="ccache gcc"
+export CPP="ccache cpp"
+export CXX="ccache g++"
+```
+
 ## ccache 配置
 
 查看统计 ccache 统计信息
@@ -34,9 +42,10 @@ ccache -s
 
 ```cfg
 max_size = 5.0G
+cache_dir = ~/.ccache
 ```
 
-更多配置请查看 https://ccache.dev/manual/latest.html
+更多配置请查看 <https://ccache.dev/manual/latest.html>
 
 ## 注意点
 
