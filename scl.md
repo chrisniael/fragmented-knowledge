@@ -8,7 +8,7 @@ yum install -y centos-release-scl
 yum install -y devtoolset-7
 ```
 
-```
+```bash
 # .bashrc
 
 source /opt/rh/devtoolset-7/enable
