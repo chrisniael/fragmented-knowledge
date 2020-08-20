@@ -52,3 +52,12 @@ cache_dir = ~/.ccache
 * ccache 并不会增加首次编译的速度，而是编译过一次后，ccache 会缓存一些编译要用的数据，来加快后续的编译速度。
 * 编译过一次后，哪怕删除所有 CMake 的缓存文件重新编译，ccache 都能加快编译速度，因为 ccache 缓存文件依然有效。
 
+## 其他
+
+配置 distcc 一起使用
+
+```bash
+export CC="ccache distcc gcc"
+export CPP="ccache distcc cpp"
+export CXX="ccache distcc g++"
+```
