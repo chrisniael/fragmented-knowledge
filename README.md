@@ -1067,3 +1067,10 @@ https://stackoverflow.com/a/3494948
 ```bash
 rsync -av source distination
 ```
+
+## vim/neovim 历史记录文件路径
+
+* vim: ~/.viminfo
+* neovim: ~/.local/share/nvim/shada/main.shada
+
+Neovim 使用 "Shada" 文件代替 viminfo 格式文件, 文档：`:h shada`。`:h shada-file-name`: 查看 shada 文件路径。
