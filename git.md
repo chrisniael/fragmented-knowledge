@@ -27,3 +27,9 @@ git rebase -i commit-id
 ```bash
 git branch -u origin/remote-branch local-branch
 ```
+
+## 新建分支时设置 upstream
+
+```bash
+git  checkout -b new-branch-name  [--track] origin/remote-branch_name
+```
