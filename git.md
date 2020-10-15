@@ -33,3 +33,10 @@ git branch -u origin/remote-branch local-branch
 ```bash
 git  checkout -b new-branch-name  [--track] origin/remote-branch_name
 ```
+
+## status 中文名显示异常
+
+```bash
+# 不对0x80以上的字符进行quote
+git config --global core.quotepath false
+```
