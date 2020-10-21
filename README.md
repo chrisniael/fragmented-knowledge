@@ -1074,3 +1074,12 @@ rsync -av source distination
 * neovim: ~/.local/share/nvim/shada/main.shada
 
 Neovim 使用 "Shada" 文件代替 viminfo 格式文件, 文档：`:h shada`。`:h shada-file-name`: 查看 shada 文件路径。
+
+## wget 指定保存路径/文件名
+
+* -O /path/to/folder/filename
+
+    指定保存的文件路径名
+* -P /path/to/folder
+
+    指定保存的目录
