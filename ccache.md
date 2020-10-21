@@ -4,11 +4,26 @@ ccache（"compiler cache" 的缩写）会缓存编译生成的信息，并在编
 
 ## 安装
 
+### 通过包管理器安装
+
 ```bash
 yum install ccache  # CentOS
 apt-get install ccache  # Ubuntu
 pacman -S ccache  # Arch
 ```
+
+### 源码编译安装
+
+```bash
+yum install libzstd  # 依赖于 libzstd
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr ..
+make
+make install
+```
+
+<https://github.com/ccache/ccache/blob/master/doc/INSTALL.md>
 
 ## CMake 集成 ccache
 
