@@ -1083,3 +1083,11 @@ Neovim 使用 "Shada" 文件代替 viminfo 格式文件, 文档：`:h shada`。`
 * -P /path/to/folder
 
     指定保存的目录
+
+## vim quickfix windows 快捷键
+
+* cc: 重新跳转到当前错误处
+* cn: 跳转到下一个错误处
+* cp: 跳转到上一个错误处
+* cnf: 跳转到下一个文件的第一个错误处
+* cpf: 跳转到上一个文件的上一次停留的错误处
