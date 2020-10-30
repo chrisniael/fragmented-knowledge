@@ -5,7 +5,7 @@ echo $fpath
 ```
 
 ```bash
-cd /usr/share/zsh/site-functionsq
+cd /usr/share/zsh/site-functions
 ln -s /usr/share/git/completion/git-completion.zsh _git
 ```
 
